@@ -13,11 +13,11 @@ namespace Agro.DataModel
         [JsonProperty("id")]
         public string Id { get; set; }
 
-        [JsonProperty("title")]
-        public string Title { get; set; }
-        
-        [JsonProperty("body")]
-        public string Body { get; set; }
+        [JsonProperty("disease_name")]
+        public string DiseaseName { get; set; }
+
+        [JsonProperty("percent_cf")]
+        public string PercentCF { get; set; }
 
     }
 }

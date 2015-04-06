@@ -3,9 +3,10 @@
   <Roots.PropertyPathNames>
     <RootPropertyPathName Name="DefaultViewModel" />
     <RootPropertyPathName Name="Items" />
-    <RootPropertyPathName Name="Description" />
-    <RootPropertyPathName Name="Title" />
+    <RootPropertyPathName Name="PercentCF" />
+    <RootPropertyPathName Name="DiseaseName" />
     <RootPropertyPathName Name="ThumbURL" />
+    <RootPropertyPathName Name="Title" />
   </Roots.PropertyPathNames>
   <Roots.RootTypes>
     <RootType FullName="Windows.UI.Xaml.Application" />
@@ -82,7 +83,6 @@
     <RootType FullName="Windows.UI.Xaml.Controls.PivotItem">
       <RootProperty Name="Margin" />
       <RootProperty Name="Content" />
-      <RootProperty Name="Header" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.StackPanel">
       <RootProperty Name="Children" />
@@ -125,8 +125,8 @@
       <RootProperty Name="SecondaryCommands" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.AppBarButton">
-      <RootProperty Name="Label" />
       <RootProperty Name="Icon" />
+      <RootProperty Name="Label" />
       <RootEvent Name="Click" />
     </RootType>
     <RootType FullName="Agro.PivotPage" />

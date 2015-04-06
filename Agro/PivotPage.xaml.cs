@@ -31,10 +31,7 @@ namespace Agro
 {
     public sealed partial class PivotPage : Page
     {
-        private const string FirstGroupName = "FirstGroup";
-        private const string SecondGroupName = "SecondGroup";
         private const string HostName = "http://obscure-sea-2022.herokuapp.com/";
-
 
         private readonly NavigationHelper navigationHelper;
         private readonly ObservableDictionary defaultViewModel = new ObservableDictionary();
@@ -61,7 +58,10 @@ namespace Agro
 
         private async void NavigationHelper_LoadState(object sender, LoadStateEventArgs e)
         {
-
+            Debug.WriteLine("NavigationHelper_LoadState");
+            GetFeedList();
+            GetNotifications();
+            GetDashboard();
         }
 
         private void NavigationHelper_SaveState(object sender, SaveStateEventArgs e)
@@ -70,22 +70,15 @@ namespace Agro
 
         private void AddAppBarButton_Click(object sender, RoutedEventArgs e)
         {
-            //string groupName = this.pivot.SelectedIndex == 0 ? FirstGroupName : SecondGroupName;
-            //var group = this.DefaultViewModel[groupName] as SampleDataGroup;
-            //var nextItemId = group.Items.Count + 1;
-            //var newItem = new SampleDataItem(
-            //    string.Format(CultureInfo.InvariantCulture, "Group-{0}-Item-{1}", this.pivot.SelectedIndex + 1, nextItemId),
-            //    string.Format(CultureInfo.CurrentCulture, this.resourceLoader.GetString("NewItemTitle"), nextItemId),
-            //    string.Empty,
-            //    string.Empty,
-            //    this.resourceLoader.GetString("NewItemDescription"),
-            //    string.Empty);
 
-            //group.Items.Add(newItem);
+        }
 
-            //var container = this.pivot.ContainerFromIndex(this.pivot.SelectedIndex) as ContentControl;
-            //var listView = container.ContentTemplateRoot as ListView;
-            //listView.ScrollIntoView(newItem, ScrollIntoViewAlignment.Leading);
+        #region NavigationHelper registration
+
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            this.navigationHelper.OnNavigatedTo(e);
+            Debug.WriteLine("OnNavigatedTo");
         }
 
         private void ItemView_ItemClick(object sender, ItemClickEventArgs e)
@@ -95,8 +88,12 @@ namespace Agro
 
         private async void SecondPivot_Loaded(object sender, RoutedEventArgs e)
         {
-            pivot.SelectedIndex = 0;
-            Debug.WriteLine("Load second page");
+
+        }
+
+        private void pivot_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
         }
 
         private async void GetFeedList()
@@ -108,84 +105,46 @@ namespace Agro
                 string responseString = await httpClient.GetStringAsync(new Uri(HostName + "contents.json"));
 
                 var feedList = JsonConvert.DeserializeObject<List<FeedItem>>(responseString);
-
-                // Debug
-                foreach (FeedItem f in feedList)
-                {
-                    Debug.WriteLine(f.ThumbURL);
-                }
-
                 FeedListView.ItemsSource = feedList;
-
             }
             catch (Exception ex)
             {
-                Debug.WriteLine(ex.ToString());
+                Debug.WriteLine("Fail: GetFeedList()");
+                //Debug.WriteLine(ex.ToString());
             }
-        }
-
-        #region NavigationHelper registration
-
-        protected override void OnNavigatedTo(NavigationEventArgs e)
-        {
-            this.navigationHelper.OnNavigatedTo(e);
-
-            GetFeedList();
-            GetNotifications();
-            GetDashboard();
-
-            // Test add pivot
-            //PivotItem pvt;
-            //for (int i = 0; i < 5; i++)
-            //{
-            //    pvt = new PivotItem();
-            //    pvt.Header = "แปลงปลูกที่ " + i;
-            //    var stack = new StackPanel();
-            //    pvt.Content = stack;
-            //    pivot.Items.Add(pvt);
-            //    pvt = null;
-            //}
-        }
-
-        private void pivot_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
         }
 
         private async void GetDashboard()
         {
-
-            var dashboards = new List<Dashboard>();
-            var localSettings = Windows.Storage.ApplicationData.Current.LocalSettings;
-
             if (IsLoggedIn())
             {
+                var localSettings = Windows.Storage.ApplicationData.Current.LocalSettings;
+                var dashboards = new List<Dashboard>();
                 try
                 {
                     HttpClient httpClient = new HttpClient();
                     httpClient.DefaultRequestHeaders.Accept.TryParseAdd("application/json");
-                    string uri = String.Format("{0}Dashboard.json?username={1}&auth_token={2}", HostName, localSettings.Values["username"], localSettings.Values["token"]);
+                    string uri = String.Format("{0}cultivated_areas.json?username={1}&auth_token={2}", HostName, localSettings.Values["username"], localSettings.Values["token"]);
                     string responseString = await httpClient.GetStringAsync(new Uri(uri));
                     dashboards = JsonConvert.DeserializeObject<List<Dashboard>>(responseString);
 
-                    // NotificationListView.ItemsSource = notifications;
+                    PivotItem pvt;
+                    for (int i = 0; i < dashboards.Count; i++)
+                    {
+                        pvt = new PivotItem();
+                        pvt.Header = dashboards.ElementAt<Dashboard>(i).Name;
+                        var stack = new StackPanel();
+                        pvt.Content = stack;
+                        pivot.Items.Add(pvt);
+                        pvt = null;
+                    }
 
                 }
                 catch (Exception ex)
                 {
-                    Debug.WriteLine(ex.ToString());
+                    Debug.WriteLine("Fail: GetDashboard()");
+                    //Debug.WriteLine(ex.ToString());
                 }
-            }
-
-            PivotItem pvt;
-            for (int i = 0; i < dashboards.Count; i++)
-            {
-                pvt = new PivotItem();
-                pvt.Header = "แปลงปลูกที่ " + i;
-                var stack = new StackPanel();
-                pvt.Content = stack;
-                pivot.Items.Add(pvt);
-                pvt = null;
             }
 
         }
@@ -193,23 +152,24 @@ namespace Agro
 
         private async void GetNotifications()
         {
-            var localSettings = Windows.Storage.ApplicationData.Current.LocalSettings;
-
             if (IsLoggedIn())
             {
+                var localSettings = Windows.Storage.ApplicationData.Current.LocalSettings;
                 try
                 {
                     HttpClient httpClient = new HttpClient();
                     httpClient.DefaultRequestHeaders.Accept.TryParseAdd("application/json");
-                    string uri = String.Format("{0}Notifications.json?username={1}&auth_token={2}", HostName, localSettings.Values["username"], localSettings.Values["token"]);
+                    string uri = String.Format("{0}notifications.json?username={1}&auth_token={2}", HostName, localSettings.Values["username"], localSettings.Values["token"]);
                     string responseString = await httpClient.GetStringAsync(new Uri(uri));
 
                     var notifications = JsonConvert.DeserializeObject<List<Notification>>(responseString);
                     NotificationListView.ItemsSource = notifications;
+
                 }
                 catch (Exception ex)
                 {
-                    Debug.WriteLine(ex.ToString());
+                    Debug.WriteLine("Fail: GetNotifications()");
+                    //Debug.WriteLine(ex.ToString());
                 }
             }
         }
@@ -245,6 +205,9 @@ namespace Agro
 
             LoginPanel.Visibility = Visibility.Collapsed;
             UserProFilePanel.Visibility = Visibility.Visible;
+
+            GetNotifications();
+            GetDashboard();
         }
 
         private async void ClickToLogOut(object sender, RoutedEventArgs e)
@@ -272,7 +235,12 @@ namespace Agro
         private bool IsLoggedIn()
         {
             var localSettings = Windows.Storage.ApplicationData.Current.LocalSettings;
-            return localSettings.Values.ContainsKey("token") && localSettings.Values.ContainsKey("username");
+            var isLoggedIn = localSettings.Values.ContainsKey("token") && localSettings.Values.ContainsKey("username");
+            if (isLoggedIn)
+            {
+                Debug.WriteLine(String.Format("Logged in as {0}: {1}", localSettings.Values["username"], localSettings.Values["token"]));
+            }
+            return isLoggedIn;
         }
 
         private void KeepData(string token, string username)

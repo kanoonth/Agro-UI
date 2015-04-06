@@ -10,14 +10,17 @@ namespace Agro.DataModel
     class Dashboard
     {
 
-        [JsonProperty("id")]
-        public string Id { get; set; }
+        [JsonProperty("name")]
+        public string Name { get; set; }
 
-        [JsonProperty("title")]
-        public string Title { get; set; }
+        [JsonProperty("latitude")]
+        public string Latitude { get; set; }
         
-        [JsonProperty("body")]
-        public string Body { get; set; }
+        [JsonProperty("longitude")]
+        public string Longtitude { get; set; }
+
+        [JsonProperty("plantation_date")]
+        public string PlantationDate { get; set; }
 
     }
 }

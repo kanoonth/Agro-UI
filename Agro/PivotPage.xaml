@@ -42,13 +42,6 @@
                                     CommonNavigationTransitionInfo.IsStaggerElement="True"
                                     Style="{ThemeResource ListViewItemTextBlockStyle}"
                                     Margin="0,0,19,0"/>
-                                <!--<TextBlock
-                                    Text="{Binding Body}"
-                                    TextWrapping="WrapWholeWords"
-                                    Pivot.SlideInAnimationGroup="2" 
-                                    CommonNavigationTransitionInfo.IsStaggerElement="True" 
-                                    Style="{ThemeResource ListViewItemContentTextBlockStyle}"
-                                    Margin="0,0,19,0"/>-->
                                 <Image Source="{Binding ThumbURL}"/>
                                 <Rectangle x:Name="Seperate" Margin="0,10" Height="2" Fill="{x:Null}" />
                             </StackPanel>
@@ -74,12 +67,12 @@
                         <DataTemplate>
                             <StackPanel Margin="0,0,0,9.5">
                                 <TextBlock
-                                    Text="{Binding Title}"
+                                    Text="{Binding DiseaseName}"
                                     Pivot.SlideInAnimationGroup="1"
                                     CommonNavigationTransitionInfo.IsStaggerElement="True"
                                     Style="{StaticResource ListViewItemTextBlockStyle}"/>
                                 <TextBlock
-                                    Text="{Binding Description}"
+                                    Text="{Binding PercentCF}"
                                     Pivot.SlideInAnimationGroup="2"
                                     CommonNavigationTransitionInfo.IsStaggerElement="True"
                                     Style="{StaticResource ListViewItemContentTextBlockStyle}"/>
@@ -89,9 +82,10 @@
                 </ListView>
             </PivotItem>
             <PivotItem
+                x:Uid="LoginPivot"
                 x:Name="Login"
                 Margin="19,14.5,0,0"
-                Header="เข้าสู่ระบบ">
+             >
                 <StackPanel>
                     <StackPanel x:Name="LoginPanel" Visibility="Visible">
                         <TextBlock Text="ชื่อผู้ใช้" Margin="37,50,71.833,0" FontSize="36"/>
@@ -99,7 +93,8 @@
                         <TextBlock Text="รหัสผ่าน" Margin="37,30,71.833,0" FontSize="36"/>
                         <PasswordBox x:Name="PasswordField" Margin="37,20,71.833,0" Height="25"/>
                         <StackPanel Orientation="Horizontal">
-                            <Button x:Name="LoginButton" Margin="37,20,71.833,0" Content="เข้าสู่ระบบ" Click="ClickToLogin"/>                        </StackPanel>
+                            <Button x:Name="LoginButton" Margin="37,20,71.833,0" Content="เข้าสู่ระบบ" Click="ClickToLogin"/>
+                        </StackPanel>
                     </StackPanel>
                     <StackPanel x:Name="UserProFilePanel" Visibility="Collapsed">
                         <StackPanel Orientation="Horizontal">
@@ -120,7 +115,7 @@
 
     <Page.BottomAppBar>
         <CommandBar>
-            <AppBarButton x:Uid="AddAppBarButton" x:Name="AddAppBarButton" Label="add" Icon="Add" Click="AddAppBarButton_Click" />
+            <AppBarButton x:Uid="LoginAppBar" x:Name="LoginAppBar" Icon="Contact" Click="AddAppBarButton_Click" />
             <CommandBar.SecondaryCommands>
                 <AppBarButton x:Uid="SecondaryButton1" x:Name="SecondaryButton1" Label="secondary command 1" />
                 <AppBarButton x:Uid="SecondaryButton2" x:Name="SecondaryButton2" Label="secondary command 2" />
