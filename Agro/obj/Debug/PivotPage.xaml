@@ -7,8 +7,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:data="using:Agro.Data"
     mc:Ignorable="d"
-    DataContext="{Binding DefaultViewModel, RelativeSource={RelativeSource Self}}"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    DataContext="{Binding DefaultViewModel, RelativeSource={RelativeSource Self}}" FontFamily="Microsoft NeoGothic" FontSize="12" Background="#FF8CBF26" Foreground="White">
     <Page.Transitions>
         <TransitionCollection>
             <NavigationThemeTransition>
@@ -41,7 +40,7 @@
                                     Pivot.SlideInAnimationGroup="1"
                                     CommonNavigationTransitionInfo.IsStaggerElement="True"
                                     Style="{ThemeResource ListViewItemTextBlockStyle}"
-                                    Margin="0,0,19,0" Foreground="#FF339933"/>
+                                    Margin="0,0,19,0" Foreground="White"/>
                                 <Image Source="{Binding ThumbURL}"/>
                                 <Rectangle x:Name="Seperate" Margin="0,10" Height="2" Fill="{x:Null}" />
                             </StackPanel>
@@ -70,12 +69,12 @@
                                     Text="{Binding DiseaseName}"
                                     Pivot.SlideInAnimationGroup="1"
                                     CommonNavigationTransitionInfo.IsStaggerElement="True"
-                                    Style="{StaticResource ListViewItemTextBlockStyle}"/>
+                                    Style="{StaticResource ListViewItemTextBlockStyle}" Foreground="White"/>
                                 <TextBlock
                                     Text="{Binding PercentCF}"
                                     Pivot.SlideInAnimationGroup="2"
                                     CommonNavigationTransitionInfo.IsStaggerElement="True"
-                                    Style="{StaticResource ListViewItemContentTextBlockStyle}"/>
+                                    Style="{StaticResource ListViewItemContentTextBlockStyle}" Foreground="White"/>
                             </StackPanel>
                         </DataTemplate>
                     </ListView.ItemTemplate>
@@ -88,9 +87,9 @@
              >
                 <StackPanel>
                     <StackPanel x:Name="LoginPanel" Visibility="Visible">
-                        <TextBlock Text="ชื่อผู้ใช้" Margin="37,50,71.833,0" FontSize="36"/>
+                        <TextBlock Text="ชื่อผู้ใช้" Margin="37,50,71.833,0" FontSize="36" Foreground="White"/>
                         <TextBox x:Name="UsernameField" Margin="37,20,71.833,0" Height="25" />
-                        <TextBlock Text="รหัสผ่าน" Margin="37,30,71.833,0" FontSize="36"/>
+                        <TextBlock Text="รหัสผ่าน" Margin="37,30,71.833,0" FontSize="36" Foreground="White"/>
                         <PasswordBox x:Name="PasswordField" Margin="37,20,71.833,0" Height="25"/>
                         <StackPanel Orientation="Horizontal">
                             <Button x:ConnectionId='3' x:Name="LoginButton" Margin="37,20,71.833,0" Content="เข้าสู่ระบบ"                     />
@@ -100,10 +99,10 @@
                         <StackPanel Orientation="Horizontal">
                             <Image x:Name="UserImage" Source="Assets/Logo.png" Width="200" Height="150" HorizontalAlignment="Left" Margin="37,20,0,0"  />
                             <StackPanel Orientation="Vertical" Margin="0,20,0,0">
-                                <TextBlock Text="ชื่อ" FontSize="24" TextWrapping="WrapWholeWords" Width="134"/>
-                                <TextBlock x:Name="FirstNameUser" FontSize="24" TextWrapping="WrapWholeWords" Width="134" Margin="0,10,0,0" />
-                                <TextBlock Text="นามสกุล" FontSize="24" TextWrapping="WrapWholeWords" Width="134" Margin="0,10,0,0"/>
-                                <TextBlock x:Name="LastNameUser"  FontSize="24" TextWrapping="WrapWholeWords" Width="134" Margin="0,10,0,0"/>
+                                <TextBlock Text="ชื่อ" FontSize="24" TextWrapping="WrapWholeWords" Width="134" Foreground="White"/>
+                                <TextBlock x:Name="FirstNameUser" FontSize="24" TextWrapping="WrapWholeWords" Width="134" Margin="0,10,0,0" Foreground="White" />
+                                <TextBlock Text="นามสกุล" FontSize="24" TextWrapping="WrapWholeWords" Width="134" Margin="0,10,0,0" Foreground="White"/>
+                                <TextBlock x:Name="LastNameUser"  FontSize="24" TextWrapping="WrapWholeWords" Width="134" Margin="0,10,0,0" Foreground="White"/>
                             </StackPanel>
                         </StackPanel>
                         <Button x:ConnectionId='2' x:Name="LogoutButton" Margin="37,20,71.833,0" Content="ออกจากระบบ"                      />
@@ -114,11 +113,11 @@
     </Grid>
 
     <Page.BottomAppBar>
-        <CommandBar>
-            <AppBarButton x:ConnectionId='6' x:Uid="LoginAppBar" x:Name="LoginAppBar" Icon="Contact"                               />
+        <CommandBar Background="#FF16811B">
+            <AppBarButton x:ConnectionId='6' x:Uid="LoginAppBar" x:Name="LoginAppBar" Icon="Contact"                               Foreground="White" />
             <CommandBar.SecondaryCommands>
-                <AppBarButton x:Uid="SecondaryButton1" x:Name="SecondaryButton1" Label="secondary command 1" />
-                <AppBarButton x:Uid="SecondaryButton2" x:Name="SecondaryButton2" Label="secondary command 2" />
+                <AppBarButton x:Uid="SecondaryButton1" x:Name="SecondaryButton1" Label="secondary command 1" Foreground="White" />
+                <AppBarButton x:Uid="SecondaryButton2" x:Name="SecondaryButton2" Label="secondary command 2" Background="White" />
             </CommandBar.SecondaryCommands>
         </CommandBar>
     </Page.BottomAppBar>
