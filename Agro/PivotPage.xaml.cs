@@ -206,7 +206,9 @@ namespace Agro
             Debug.WriteLine(token);
             KeepData(token, username);
 
-            MessageBoxDisplay("ยินดีต้อนรับเข้าสู่ระบบ");
+            ResourceLoader rl = new ResourceLoader();
+            string greetingLogin = rl.GetString("GreetingLogin");
+            MessageBoxDisplay(greetingLogin + username);
 
             LoginPanel.Visibility = Visibility.Collapsed;
             UserProFilePanel.Visibility = Visibility.Visible;

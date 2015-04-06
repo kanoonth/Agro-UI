@@ -120,6 +120,9 @@
   <data name="FeedPivot.Header" xml:space="preserve">
     <value>ข่าว</value>
   </data>
+  <data name="GreetingLogin" xml:space="preserve">
+    <value>สวัสดี </value>
+  </data>
   <data name="LoginAppBar.Label" xml:space="preserve">
     <value>เข้าสู่ระบบ</value>
   </data>
