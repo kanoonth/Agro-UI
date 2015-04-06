@@ -44,7 +44,12 @@ namespace Agro
             this.navigationHelper = new NavigationHelper(this);
             this.navigationHelper.LoadState += this.NavigationHelper_LoadState;
             this.navigationHelper.SaveState += this.NavigationHelper_SaveState;
+            GetFeedList();
+            GetNotifications();
+            GetDashboard();
         }
+
+        #region Navigation
 
         public NavigationHelper NavigationHelper
         {
@@ -59,9 +64,6 @@ namespace Agro
         private async void NavigationHelper_LoadState(object sender, LoadStateEventArgs e)
         {
             Debug.WriteLine("NavigationHelper_LoadState");
-            GetFeedList();
-            GetNotifications();
-            GetDashboard();
         }
 
         private void NavigationHelper_SaveState(object sender, SaveStateEventArgs e)
@@ -73,7 +75,10 @@ namespace Agro
 
         }
 
-        #region NavigationHelper registration
+        protected override void OnNavigatedFrom(NavigationEventArgs e)
+        {
+            this.navigationHelper.OnNavigatedFrom(e);
+        }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
@@ -95,6 +100,10 @@ namespace Agro
         {
 
         }
+
+        #endregion
+
+        #region SendRequest
 
         private async void GetFeedList()
         {
@@ -149,7 +158,6 @@ namespace Agro
 
         }
 
-
         private async void GetNotifications()
         {
             if (IsLoggedIn())
@@ -174,12 +182,9 @@ namespace Agro
             }
         }
 
-        protected override void OnNavigatedFrom(NavigationEventArgs e)
-        {
-            this.navigationHelper.OnNavigatedFrom(e);
-        }
-
         #endregion
+
+        #region Login
 
         private async void ClickToLogin(object sender, RoutedEventArgs e)
         {
@@ -259,6 +264,8 @@ namespace Agro
             MessageDialog msgbox = new MessageDialog(message);
             await msgbox.ShowAsync();
         }
+
+        #endregion
 
     }
 }
