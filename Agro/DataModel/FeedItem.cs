@@ -30,9 +30,5 @@ namespace Agro.DataModel
             return Title;
         }
 
-        public string BodyAtGlance()
-        {
-            return Body.Substring(0, 140) + "... อ่านต่อ";
-        }
     }
 }

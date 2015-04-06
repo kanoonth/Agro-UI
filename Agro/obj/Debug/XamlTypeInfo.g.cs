@@ -124,29 +124,27 @@ namespace Agro.Agro_XamlTypeInfo
 
         private void InitTypeTables()
         {
-            _typeNameTable = new string[10];
+            _typeNameTable = new string[9];
             _typeNameTable[0] = "Agro.FeedPage";
             _typeNameTable[1] = "Windows.UI.Xaml.Controls.Page";
             _typeNameTable[2] = "Windows.UI.Xaml.Controls.UserControl";
-            _typeNameTable[3] = "Agro.ItemPage";
+            _typeNameTable[3] = "Agro.PivotPage";
             _typeNameTable[4] = "Agro.Common.NavigationHelper";
             _typeNameTable[5] = "Windows.UI.Xaml.DependencyObject";
             _typeNameTable[6] = "Agro.Common.ObservableDictionary";
             _typeNameTable[7] = "Object";
             _typeNameTable[8] = "String";
-            _typeNameTable[9] = "Agro.PivotPage";
 
-            _typeTable = new global::System.Type[10];
+            _typeTable = new global::System.Type[9];
             _typeTable[0] = typeof(global::Agro.FeedPage);
             _typeTable[1] = typeof(global::Windows.UI.Xaml.Controls.Page);
             _typeTable[2] = typeof(global::Windows.UI.Xaml.Controls.UserControl);
-            _typeTable[3] = typeof(global::Agro.ItemPage);
+            _typeTable[3] = typeof(global::Agro.PivotPage);
             _typeTable[4] = typeof(global::Agro.Common.NavigationHelper);
             _typeTable[5] = typeof(global::Windows.UI.Xaml.DependencyObject);
             _typeTable[6] = typeof(global::Agro.Common.ObservableDictionary);
             _typeTable[7] = typeof(global::System.Object);
             _typeTable[8] = typeof(global::System.String);
-            _typeTable[9] = typeof(global::Agro.PivotPage);
         }
 
         private int LookupTypeIndexByName(string typeName)
@@ -182,9 +180,8 @@ namespace Agro.Agro_XamlTypeInfo
         }
 
         private object Activate_0_FeedPage() { return new global::Agro.FeedPage(); }
-        private object Activate_3_ItemPage() { return new global::Agro.ItemPage(); }
+        private object Activate_3_PivotPage() { return new global::Agro.PivotPage(); }
         private object Activate_6_ObservableDictionary() { return new global::Agro.Common.ObservableDictionary(); }
-        private object Activate_9_PivotPage() { return new global::Agro.PivotPage(); }
         private void MapAdd_6_ObservableDictionary(object instance, object key, object item)
         {
             var collection = (global::System.Collections.Generic.IDictionary<global::System.String, global::System.Object>)instance;
@@ -218,9 +215,9 @@ namespace Agro.Agro_XamlTypeInfo
                 xamlType = new global::Agro.Agro_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 3:   //  Agro.ItemPage
+            case 3:   //  Agro.PivotPage
                 userType = new global::Agro.Agro_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_3_ItemPage;
+                userType.Activator = Activate_3_PivotPage;
                 userType.AddMemberName("NavigationHelper");
                 userType.AddMemberName("DefaultViewModel");
                 userType.SetIsLocalType();
@@ -253,36 +250,17 @@ namespace Agro.Agro_XamlTypeInfo
             case 8:   //  String
                 xamlType = new global::Agro.Agro_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
-
-            case 9:   //  Agro.PivotPage
-                userType = new global::Agro.Agro_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_9_PivotPage;
-                userType.AddMemberName("NavigationHelper");
-                userType.AddMemberName("DefaultViewModel");
-                userType.SetIsLocalType();
-                xamlType = userType;
-                break;
             }
             return xamlType;
         }
 
 
-        private object get_0_ItemPage_NavigationHelper(object instance)
-        {
-            var that = (global::Agro.ItemPage)instance;
-            return that.NavigationHelper;
-        }
-        private object get_1_ItemPage_DefaultViewModel(object instance)
-        {
-            var that = (global::Agro.ItemPage)instance;
-            return that.DefaultViewModel;
-        }
-        private object get_2_PivotPage_NavigationHelper(object instance)
+        private object get_0_PivotPage_NavigationHelper(object instance)
         {
             var that = (global::Agro.PivotPage)instance;
             return that.NavigationHelper;
         }
-        private object get_3_PivotPage_DefaultViewModel(object instance)
+        private object get_1_PivotPage_DefaultViewModel(object instance)
         {
             var that = (global::Agro.PivotPage)instance;
             return that.DefaultViewModel;
@@ -295,28 +273,16 @@ namespace Agro.Agro_XamlTypeInfo
 
             switch (longMemberName)
             {
-            case "Agro.ItemPage.NavigationHelper":
-                userType = (global::Agro.Agro_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Agro.ItemPage");
-                xamlMember = new global::Agro.Agro_XamlTypeInfo.XamlMember(this, "NavigationHelper", "Agro.Common.NavigationHelper");
-                xamlMember.Getter = get_0_ItemPage_NavigationHelper;
-                xamlMember.SetIsReadOnly();
-                break;
-            case "Agro.ItemPage.DefaultViewModel":
-                userType = (global::Agro.Agro_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Agro.ItemPage");
-                xamlMember = new global::Agro.Agro_XamlTypeInfo.XamlMember(this, "DefaultViewModel", "Agro.Common.ObservableDictionary");
-                xamlMember.Getter = get_1_ItemPage_DefaultViewModel;
-                xamlMember.SetIsReadOnly();
-                break;
             case "Agro.PivotPage.NavigationHelper":
                 userType = (global::Agro.Agro_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Agro.PivotPage");
                 xamlMember = new global::Agro.Agro_XamlTypeInfo.XamlMember(this, "NavigationHelper", "Agro.Common.NavigationHelper");
-                xamlMember.Getter = get_2_PivotPage_NavigationHelper;
+                xamlMember.Getter = get_0_PivotPage_NavigationHelper;
                 xamlMember.SetIsReadOnly();
                 break;
             case "Agro.PivotPage.DefaultViewModel":
                 userType = (global::Agro.Agro_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Agro.PivotPage");
                 xamlMember = new global::Agro.Agro_XamlTypeInfo.XamlMember(this, "DefaultViewModel", "Agro.Common.ObservableDictionary");
-                xamlMember.Getter = get_3_PivotPage_DefaultViewModel;
+                xamlMember.Getter = get_1_PivotPage_DefaultViewModel;
                 xamlMember.SetIsReadOnly();
                 break;
             }

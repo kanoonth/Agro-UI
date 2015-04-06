@@ -2,10 +2,9 @@
 <Roots >
   <Roots.PropertyPathNames>
     <RootPropertyPathName Name="DefaultViewModel" />
-    <RootPropertyPathName Name="Item" />
-    <RootPropertyPathName Name="Title" />
     <RootPropertyPathName Name="Items" />
     <RootPropertyPathName Name="Description" />
+    <RootPropertyPathName Name="Title" />
     <RootPropertyPathName Name="ThumbURL" />
   </Roots.PropertyPathNames>
   <Roots.RootTypes>
@@ -25,8 +24,6 @@
       <RootProperty Name="Background" />
       <RootProperty Name="Children" />
       <RootProperty Name="RowDefinitions" />
-      <RootProperty Name="ChildrenTransitions" />
-      <RootProperty Name="Margin" />
       <RootMethod Name="GetRow" />
       <RootMethod Name="SetRow" />
     </RootType>
@@ -39,9 +36,8 @@
       <RootProperty Name="HorizontalAlignment" />
       <RootProperty Name="VerticalAlignment" />
       <RootProperty Name="Height" />
-      <RootProperty Name="Style" />
-      <RootProperty Name="CharacterSpacing" />
       <RootProperty Name="Width" />
+      <RootProperty Name="Style" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.Image">
       <RootProperty Name="HorizontalAlignment" />
@@ -72,25 +68,12 @@
     <RootType FullName="Windows.UI.Xaml.Media.Animation.NavigationThemeTransition">
       <RootProperty Name="DefaultNavigationTransitionInfo" />
     </RootType>
-    <RootType FullName="Windows.UI.Xaml.Media.Animation.ContinuumNavigationTransitionInfo">
-      <RootMethod Name="GetExitElementContainer" />
-      <RootMethod Name="SetExitElementContainer" />
-    </RootType>
-    <RootType FullName="Windows.UI.Xaml.Media.Animation.EntranceThemeTransition" />
-    <RootType FullName="Windows.UI.Xaml.Controls.StackPanel">
-      <RootProperty Name="Margin" />
-      <RootProperty Name="Children" />
-      <RootProperty Name="Visibility" />
-      <RootProperty Name="Orientation" />
-    </RootType>
-    <RootType FullName="Agro.ItemPage" />
     <RootType FullName="Windows.UI.Xaml.Media.Animation.CommonNavigationTransitionInfo">
       <RootProperty Name="IsStaggeringEnabled" />
       <RootMethod Name="GetIsStaggerElement" />
       <RootMethod Name="SetIsStaggerElement" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.Pivot">
-      <RootProperty Name="Title" />
       <RootProperty Name="Items" />
       <RootEvent Name="SelectionChanged" />
       <RootMethod Name="GetSlideInAnimationGroup" />
@@ -98,8 +81,14 @@
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.PivotItem">
       <RootProperty Name="Margin" />
-      <RootProperty Name="Header" />
       <RootProperty Name="Content" />
+      <RootProperty Name="Header" />
+    </RootType>
+    <RootType FullName="Windows.UI.Xaml.Controls.StackPanel">
+      <RootProperty Name="Children" />
+      <RootProperty Name="Visibility" />
+      <RootProperty Name="Orientation" />
+      <RootProperty Name="Margin" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.Button">
       <RootProperty Name="Margin" />
@@ -116,6 +105,10 @@
       <RootProperty Name="ItemTemplate" />
       <RootEvent Name="ItemClick" />
       <RootEvent Name="Loaded" />
+    </RootType>
+    <RootType FullName="Windows.UI.Xaml.Media.Animation.ContinuumNavigationTransitionInfo">
+      <RootMethod Name="GetExitElementContainer" />
+      <RootMethod Name="SetExitElementContainer" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.DataTemplate">
       <RootProperty Name="Template" />

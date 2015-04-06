@@ -118,10 +118,10 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="FeedPivot.Header" xml:space="preserve">
-    <value>Feed</value>
+    <value>ข่าว</value>
   </data>
   <data name="NotificationPivot.Header" xml:space="preserve">
-    <value>Notification</value>
+    <value>แจ้งเตือน</value>
   </data>
   <data name="Pivot.Title" xml:space="preserve">
     <value>Agro</value>

@@ -20,12 +20,12 @@
     </Page.Transitions>
 
     <Grid>
-        <Pivot Title="Agro เรารักการเกษตร" x:Name="pivot" CommonNavigationTransitionInfo.IsStaggerElement="True" SelectionChanged="pivot_SelectionChanged">
+        <Pivot x:Uid="Pivot" x:Name="pivot" CommonNavigationTransitionInfo.IsStaggerElement="True" SelectionChanged="pivot_SelectionChanged">
             <!--Pivot item one-->
             <PivotItem
+                x:Uid="FeedPivot"
                 x:Name="Feeds"
                 Margin="19,14.5,0,0"
-                Header="ข่าว"
                 CommonNavigationTransitionInfo.IsStaggerElement="True">
                 <!--Double line list with text wrapping-->
                 <ListView x:Name="FeedListView"
@@ -59,9 +59,10 @@
 
             <!--Pivot item two-->
             <PivotItem
+                x:Uid="NotificationPivot"
                 x:Name="Nofifications"
                 Margin="19,14.5,0,0"
-                Header="แจ้งเตือน">
+                >
                 <!--Double line list no text wrapping-->
                 <ListView x:Name="NotificationListView"
                     ItemsSource="{Binding Items}"
@@ -94,9 +95,9 @@
                 <StackPanel>
                     <StackPanel x:Name="LoginPanel" Visibility="Visible">
                         <TextBlock Text="ชื่อผู้ใช้" Margin="37,50,71.833,0" FontSize="36"/>
-                        <TextBox x:Name="UserNameField" Margin="37,20,71.833,0" Height="25" />
+                        <TextBox x:Name="UsernameField" Margin="37,20,71.833,0" Height="25" />
                         <TextBlock Text="รหัสผ่าน" Margin="37,30,71.833,0" FontSize="36"/>
-                        <PasswordBox x:Name="PassWordField" Margin="37,20,71.833,0" Height="25"/>
+                        <PasswordBox x:Name="PasswordField" Margin="37,20,71.833,0" Height="25"/>
                         <StackPanel Orientation="Horizontal">
                             <Button x:Name="LoginButton" Margin="37,20,71.833,0" Content="เข้าสู่ระบบ" Click="ClickToLogin"/>                        </StackPanel>
                     </StackPanel>
