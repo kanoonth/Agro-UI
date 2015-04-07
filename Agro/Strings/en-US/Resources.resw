@@ -121,7 +121,7 @@
     <value>Newsfeed</value>
   </data>
   <data name="GreetingLogin" xml:space="preserve">
-    <value>Hello</value>
+    <value>Logged in successfully</value>
   </data>
   <data name="InvalidLogin" xml:space="preserve">
     <value>Invalid username or password</value>

@@ -36,6 +36,7 @@ namespace Agro
         private readonly NavigationHelper navigationHelper;
         private readonly ObservableDictionary defaultViewModel = new ObservableDictionary();
         private readonly ResourceLoader resourceLoader = ResourceLoader.GetForCurrentView("Resources");
+        private User currentUser;
 
         public PivotPage()
         {
@@ -218,8 +219,8 @@ namespace Agro
                 httpClient.DefaultRequestHeaders.Accept.TryParseAdd("application/json");
                 string uri = String.Format("{0}profile.json?username={1}&auth_token={2}", HOSTNAME, localSettings.Values["username"], localSettings.Values["token"]);
                 string responseString = await httpClient.GetStringAsync(new Uri(uri));
-                User user = JsonConvert.DeserializeObject<User>(responseString);
-                NameAtAppBar.Label = user.Name;
+                currentUser = JsonConvert.DeserializeObject<User>(responseString);
+                NameAtAppBar.Label = currentUser.Name;
             }
             catch (Exception ex)
             {
@@ -230,7 +231,7 @@ namespace Agro
 
         #endregion
 
-        #region Logout
+        #region User
 
         private async void ClickToLogOut(object sender, RoutedEventArgs e)
         {
@@ -270,6 +271,11 @@ namespace Agro
                 Debug.WriteLine(String.Format("Logged in as {0}: {1}", localSettings.Values["username"], localSettings.Values["token"]));
             }
             return isLoggedIn;
+        }
+
+        private async void OpenUserPage(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(UserPage), currentUser);
         }
 
 

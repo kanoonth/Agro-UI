@@ -70,7 +70,7 @@ namespace Agro
             {
                 KeepData(token, username);
                 string greetingLogin = Resource.GetString("GreetingLogin");
-                MessageBoxDisplay(greetingLogin + ", " + username);
+                MessageBoxDisplay(greetingLogin);
                 Frame.Navigate(typeof(PivotPage),"LoggedIn");
             }
             else if (loginResult.Equals("Unauthorized"))

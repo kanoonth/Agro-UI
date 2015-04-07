@@ -56,7 +56,7 @@
         <CommandBar x:Name="CommandBar" Background="#FF16811B">
             <AppBarButton x:Uid="LoginAppBar" x:Name="LoginAppBar" Icon="Contact" Click="AddAppBarButton_Click" Foreground="White" />
             <CommandBar.SecondaryCommands>
-                <AppBarButton x:Uid="NameAtAppBar" x:Name="NameAtAppBar" Label="Your Name" Foreground="White" Visibility="Collapsed" />
+                <AppBarButton x:Uid="NameAtAppBar" x:Name="NameAtAppBar" Label="Your Name" Foreground="White" Visibility="Collapsed" Click="OpenUserPage" />
                 <AppBarButton x:Uid="LogoutButton" x:Name="LogoutButton" Visibility="Collapsed" Click="ClickToLogOut"></AppBarButton>
             </CommandBar.SecondaryCommands>
         </CommandBar>

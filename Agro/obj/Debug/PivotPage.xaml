@@ -56,8 +56,8 @@
         <CommandBar x:Name="CommandBar" Background="#FF16811B">
             <AppBarButton x:ConnectionId='2' x:Uid="LoginAppBar" x:Name="LoginAppBar" Icon="Contact"                               Foreground="White" />
             <CommandBar.SecondaryCommands>
-                <AppBarButton x:Uid="NameAtAppBar" x:Name="NameAtAppBar" Label="Your Name" Foreground="White" Visibility="Collapsed" />
-                <AppBarButton x:ConnectionId='3' x:Uid="LogoutButton" x:Name="LogoutButton" Visibility="Collapsed"                      ></AppBarButton>
+                <AppBarButton x:ConnectionId='3' x:Uid="NameAtAppBar" x:Name="NameAtAppBar" Label="Your Name" Foreground="White" Visibility="Collapsed"                      />
+                <AppBarButton x:ConnectionId='4' x:Uid="LogoutButton" x:Name="LogoutButton" Visibility="Collapsed"                      ></AppBarButton>
             </CommandBar.SecondaryCommands>
         </CommandBar>
     </Page.BottomAppBar>

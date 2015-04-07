@@ -124,33 +124,35 @@ namespace Agro.Agro_XamlTypeInfo
 
         private void InitTypeTables()
         {
-            _typeNameTable = new string[12];
+            _typeNameTable = new string[13];
             _typeNameTable[0] = "Agro.DashboardPage";
             _typeNameTable[1] = "Windows.UI.Xaml.Controls.Page";
             _typeNameTable[2] = "Windows.UI.Xaml.Controls.UserControl";
-            _typeNameTable[3] = "Agro.NotificationListViewPage";
-            _typeNameTable[4] = "Agro.LoginPage";
-            _typeNameTable[5] = "Agro.FeedPage";
-            _typeNameTable[6] = "Agro.PivotPage";
-            _typeNameTable[7] = "Agro.Common.NavigationHelper";
-            _typeNameTable[8] = "Windows.UI.Xaml.DependencyObject";
-            _typeNameTable[9] = "Agro.Common.ObservableDictionary";
-            _typeNameTable[10] = "Object";
-            _typeNameTable[11] = "String";
+            _typeNameTable[3] = "Agro.UserPage";
+            _typeNameTable[4] = "Agro.NotificationListViewPage";
+            _typeNameTable[5] = "Agro.LoginPage";
+            _typeNameTable[6] = "Agro.FeedPage";
+            _typeNameTable[7] = "Agro.PivotPage";
+            _typeNameTable[8] = "Agro.Common.NavigationHelper";
+            _typeNameTable[9] = "Windows.UI.Xaml.DependencyObject";
+            _typeNameTable[10] = "Agro.Common.ObservableDictionary";
+            _typeNameTable[11] = "Object";
+            _typeNameTable[12] = "String";
 
-            _typeTable = new global::System.Type[12];
+            _typeTable = new global::System.Type[13];
             _typeTable[0] = typeof(global::Agro.DashboardPage);
             _typeTable[1] = typeof(global::Windows.UI.Xaml.Controls.Page);
             _typeTable[2] = typeof(global::Windows.UI.Xaml.Controls.UserControl);
-            _typeTable[3] = typeof(global::Agro.NotificationListViewPage);
-            _typeTable[4] = typeof(global::Agro.LoginPage);
-            _typeTable[5] = typeof(global::Agro.FeedPage);
-            _typeTable[6] = typeof(global::Agro.PivotPage);
-            _typeTable[7] = typeof(global::Agro.Common.NavigationHelper);
-            _typeTable[8] = typeof(global::Windows.UI.Xaml.DependencyObject);
-            _typeTable[9] = typeof(global::Agro.Common.ObservableDictionary);
-            _typeTable[10] = typeof(global::System.Object);
-            _typeTable[11] = typeof(global::System.String);
+            _typeTable[3] = typeof(global::Agro.UserPage);
+            _typeTable[4] = typeof(global::Agro.NotificationListViewPage);
+            _typeTable[5] = typeof(global::Agro.LoginPage);
+            _typeTable[6] = typeof(global::Agro.FeedPage);
+            _typeTable[7] = typeof(global::Agro.PivotPage);
+            _typeTable[8] = typeof(global::Agro.Common.NavigationHelper);
+            _typeTable[9] = typeof(global::Windows.UI.Xaml.DependencyObject);
+            _typeTable[10] = typeof(global::Agro.Common.ObservableDictionary);
+            _typeTable[11] = typeof(global::System.Object);
+            _typeTable[12] = typeof(global::System.String);
         }
 
         private int LookupTypeIndexByName(string typeName)
@@ -186,11 +188,12 @@ namespace Agro.Agro_XamlTypeInfo
         }
 
         private object Activate_0_DashboardPage() { return new global::Agro.DashboardPage(); }
-        private object Activate_4_LoginPage() { return new global::Agro.LoginPage(); }
-        private object Activate_5_FeedPage() { return new global::Agro.FeedPage(); }
-        private object Activate_6_PivotPage() { return new global::Agro.PivotPage(); }
-        private object Activate_9_ObservableDictionary() { return new global::Agro.Common.ObservableDictionary(); }
-        private void MapAdd_9_ObservableDictionary(object instance, object key, object item)
+        private object Activate_3_UserPage() { return new global::Agro.UserPage(); }
+        private object Activate_5_LoginPage() { return new global::Agro.LoginPage(); }
+        private object Activate_6_FeedPage() { return new global::Agro.FeedPage(); }
+        private object Activate_7_PivotPage() { return new global::Agro.PivotPage(); }
+        private object Activate_10_ObservableDictionary() { return new global::Agro.Common.ObservableDictionary(); }
+        private void MapAdd_10_ObservableDictionary(object instance, object key, object item)
         {
             var collection = (global::System.Collections.Generic.IDictionary<global::System.String, global::System.Object>)instance;
             var newKey = (global::System.String)key;
@@ -223,59 +226,66 @@ namespace Agro.Agro_XamlTypeInfo
                 xamlType = new global::Agro.Agro_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 3:   //  Agro.NotificationListViewPage
+            case 3:   //  Agro.UserPage
+                userType = new global::Agro.Agro_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
+                userType.Activator = Activate_3_UserPage;
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 4:   //  Agro.NotificationListViewPage
                 userType = new global::Agro.Agro_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 4:   //  Agro.LoginPage
+            case 5:   //  Agro.LoginPage
                 userType = new global::Agro.Agro_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_4_LoginPage;
+                userType.Activator = Activate_5_LoginPage;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 5:   //  Agro.FeedPage
+            case 6:   //  Agro.FeedPage
                 userType = new global::Agro.Agro_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_5_FeedPage;
+                userType.Activator = Activate_6_FeedPage;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 6:   //  Agro.PivotPage
+            case 7:   //  Agro.PivotPage
                 userType = new global::Agro.Agro_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_6_PivotPage;
+                userType.Activator = Activate_7_PivotPage;
                 userType.AddMemberName("NavigationHelper");
                 userType.AddMemberName("DefaultViewModel");
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 7:   //  Agro.Common.NavigationHelper
+            case 8:   //  Agro.Common.NavigationHelper
                 userType = new global::Agro.Agro_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.DependencyObject"));
                 userType.SetIsReturnTypeStub();
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 8:   //  Windows.UI.Xaml.DependencyObject
+            case 9:   //  Windows.UI.Xaml.DependencyObject
                 xamlType = new global::Agro.Agro_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 9:   //  Agro.Common.ObservableDictionary
+            case 10:   //  Agro.Common.ObservableDictionary
                 userType = new global::Agro.Agro_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
-                userType.DictionaryAdd = MapAdd_9_ObservableDictionary;
+                userType.DictionaryAdd = MapAdd_10_ObservableDictionary;
                 userType.SetIsReturnTypeStub();
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 10:   //  Object
+            case 11:   //  Object
                 xamlType = new global::Agro.Agro_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 11:   //  String
+            case 12:   //  String
                 xamlType = new global::Agro.Agro_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
             }

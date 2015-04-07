@@ -121,7 +121,7 @@
     <value>ข่าว</value>
   </data>
   <data name="GreetingLogin" xml:space="preserve">
-    <value>สวัสดี </value>
+    <value>เข้าสู่ระบบสำเร็จ</value>
   </data>
   <data name="InvalidLogin" xml:space="preserve">
     <value>ชื่อผู้ใช้ หรือ รหัสผ่าน ผิดพลาด</value>
