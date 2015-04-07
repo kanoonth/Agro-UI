@@ -31,7 +31,7 @@ namespace Agro
 {
     public sealed partial class PivotPage : Page
     {
-        private const string HostName = "http://obscure-sea-2022.herokuapp.com/";
+        public const string HostName = "http://obscure-sea-2022.herokuapp.com/";
 
         private readonly NavigationHelper navigationHelper;
         private readonly ObservableDictionary defaultViewModel = new ObservableDictionary();
@@ -72,6 +72,10 @@ namespace Agro
 
         private void AddAppBarButton_Click(object sender, RoutedEventArgs e)
         {
+            if (!IsLoggedIn())
+            {
+                Frame.Navigate(typeof(LoginPage));
+            }
 
         }
 
@@ -83,12 +87,36 @@ namespace Agro
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             this.navigationHelper.OnNavigatedTo(e);
+
+            if (IsLoggedIn())
+            {
+                NameAtAppBar.Visibility = Visibility.Visible;
+                LogoutButton.Visibility = Visibility.Visible;
+            }
+
+            Debug.WriteLine(e.ToString());
+            if (e.ToString().Equals("LoggedIn"))
+            {
+
+                GetDashboard();
+                GetNotifications();
+            }
             Debug.WriteLine("OnNavigatedTo");
         }
 
         private void ItemView_ItemClick(object sender, ItemClickEventArgs e)
         {
-            Frame.Navigate(typeof(FeedPage), e.ClickedItem);
+            var item = e.ClickedItem.GetType().ToString();
+            if (item.Equals("Agro.DataModel.FeedItem"))
+            {
+                Frame.Navigate(typeof(FeedPage), e.ClickedItem);
+            }
+            else if (item.Equals("Agro.DataModel.Notification"))
+            {
+                
+            } 
+            
+            
         }
 
         private async void SecondPivot_Loaded(object sender, RoutedEventArgs e)
@@ -184,38 +212,7 @@ namespace Agro
 
         #endregion
 
-        #region Login
-
-        private async void ClickToLogin(object sender, RoutedEventArgs e)
-        {
-            string username = UsernameField.Text;
-            var password = PasswordField.Password;
-
-            PasswordField.Password = "";
-            UsernameField.Text = "";
-
-            var uri = new Uri(HostName + "users/sign_in");
-            var json = "{\"user\": {\"username\" :\"" + username + "\", \"password\": \"" + password + "\" }}";
-
-            HttpClient httpClient = new HttpClient();
-
-            httpClient.DefaultRequestHeaders.Accept.TryParseAdd("application/json");
-            var responseString = await httpClient.PostAsync(uri, new HttpStringContent(json, UnicodeEncoding.Utf8,
-                                    "application/json"));
-            string token = responseString.Content.ToString();
-            Debug.WriteLine(token);
-            KeepData(token, username);
-
-            ResourceLoader rl = new ResourceLoader();
-            string greetingLogin = rl.GetString("GreetingLogin");
-            MessageBoxDisplay(greetingLogin + username);
-
-            LoginPanel.Visibility = Visibility.Collapsed;
-            UserProFilePanel.Visibility = Visibility.Visible;
-
-            GetNotifications();
-            GetDashboard();
-        }
+        #region Logout
 
         private async void ClickToLogOut(object sender, RoutedEventArgs e)
         {
@@ -233,10 +230,9 @@ namespace Agro
             localSettings.Values.Remove("token");
             localSettings.Values.Remove("username");
 
-            MessageBoxDisplay("คุณได้ออกจากระบบแล้ว");
+            NameAtAppBar.Visibility = Visibility.Collapsed;
+            LogoutButton.Visibility = Visibility.Collapsed;
 
-            LoginPanel.Visibility = Visibility.Visible;
-            UserProFilePanel.Visibility = Visibility.Collapsed;
         }
 
         private bool IsLoggedIn()
@@ -250,22 +246,6 @@ namespace Agro
             return isLoggedIn;
         }
 
-        private void KeepData(string token, string username)
-        {
-            var localSettings = Windows.Storage.ApplicationData.Current.LocalSettings;
-            if (!IsLoggedIn())
-            {
-                localSettings.Values.Add("token", token);
-                localSettings.Values.Add("username", username);
-            }
-            return;
-        }
-
-        private async void MessageBoxDisplay(string message)
-        {
-            MessageDialog msgbox = new MessageDialog(message);
-            await msgbox.ShowAsync();
-        }
 
         #endregion
 

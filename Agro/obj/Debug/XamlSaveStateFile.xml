@@ -1,6 +1,6 @@
 <XamlCompilerSaveState>
   <ReferenceAssemblyList>
-    <LocalAssembly PathName="c:\users\kitty\documents\visual studio 2013\projects\agro\agro\obj\debug\intermediatexaml\agro.exe" HashGuid="3d18bcb3-9fa3-0985-b6e6-41833e236aea" />
-    <ReferenceAssembly PathName="c:\users\sarun\desktop\agro-ui\packages\newtonsoft.json.6.0.8\lib\portable-net40+sl5+wp80+win8+wpa81\newtonsoft.json.dll" HashGuid="225745d8-3693-ad6f-ebd5-8845d81f8e0f" />
+    <LocalAssembly PathName="c:\users\kitty\documents\visual studio 2013\projects\agro\agro\obj\debug\intermediatexaml\agro.exe" HashGuid="8e0d0dcd-ebc2-5d40-cd3a-2205d3bc2c7c" />
+    <ReferenceAssembly PathName="c:\users\kitty\documents\visual studio 2013\projects\agro\packages\newtonsoft.json.6.0.8\lib\portable-net40+sl5+wp80+win8+wpa81\newtonsoft.json.dll" HashGuid="225745d8-3693-ad6f-ebd5-8845d81f8e0f" />
   </ReferenceAssemblyList>
 </XamlCompilerSaveState>

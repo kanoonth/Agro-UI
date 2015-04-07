@@ -1,0 +1,50 @@
+﻿<Page
+    x:Class="Agro.LoginPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Agro"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+    <Page.Background>
+        <SolidColorBrush Color="#FF8CBF26"/>
+    </Page.Background>
+
+    <Grid x:Name="LayoutRoot" Background="#FF8CBF26">
+        <Rectangle Fill="#FF16811B" />
+        <TextBlock x:Name="FeedNewsTitle" Foreground="White" x:Uid="LoginHeader" FontSize="36" Grid.Row="0" Margin="10,10,14,10" TextWrapping="WrapWholeWords" FontWeight="Bold" />
+
+
+        <StackPanel Grid.Row="1">
+            <StackPanel x:Name="LoginPanel" Visibility="Visible">
+                <TextBlock x:Uid="UsernameLabel" Margin="37,50,71.833,0" FontSize="36" Foreground="White"/>
+                <TextBox x:Name="UsernameField" Margin="37,20,71.833,0" Height="25" />
+                <TextBlock x:Uid="PasswordLabel" Margin="37,30,71.833,0" FontSize="36" Foreground="White"/>
+                <PasswordBox x:Name="PasswordField" Margin="37,20,71.833,0" Height="25"/>
+                <StackPanel Orientation="Horizontal">
+                    <Button x:Name="LoginButton" Margin="37,20,71.833,0" x:Uid="LoginButton" Click="ClickToLogin"/>
+                </StackPanel>
+            </StackPanel>
+            <StackPanel x:Name="UserProFilePanel" Visibility="Collapsed">
+                <StackPanel Orientation="Horizontal">
+                    <Image x:Name="UserImage" Source="Assets/Logo.png" Width="200" Height="150" HorizontalAlignment="Left" Margin="37,20,0,0"  />
+                    <StackPanel Orientation="Vertical" Margin="0,20,0,0">
+                        <TextBlock Text="ชื่อ" FontSize="24" TextWrapping="WrapWholeWords" Width="134" Foreground="White"/>
+                        <TextBlock x:Name="FirstNameUser" FontSize="24" TextWrapping="WrapWholeWords" Width="134" Margin="0,10,0,0" Foreground="White" />
+                        <TextBlock Text="นามสกุล" FontSize="24" TextWrapping="WrapWholeWords" Width="134" Margin="0,10,0,0" Foreground="White"/>
+                        <TextBlock x:Name="LastNameUser"  FontSize="24" TextWrapping="WrapWholeWords" Width="134" Margin="0,10,0,0" Foreground="White"/>
+                    </StackPanel>
+                </StackPanel>
+            </StackPanel>
+        </StackPanel>
+
+
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+        </Grid.RowDefinitions>
+
+    </Grid>
+    
+</Page>

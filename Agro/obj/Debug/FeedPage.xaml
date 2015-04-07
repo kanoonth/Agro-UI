@@ -5,23 +5,22 @@
     xmlns:local="using:Agro"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    mc:Ignorable="d">
+    <Page.Background>
+        <SolidColorBrush Color="#FF8CBF26"/>
+    </Page.Background>
 
     <ScrollViewer>
-        <Grid x:Name="LayoutRoot" Background="Black">
-          
-            <TextBlock x:Name="FeedNewsTitle" Foreground="White" Text="NEWS" FontSize="24" Grid.Row="0" Margin="10,10,14,10" TextWrapping="WrapWholeWords" />
+        <Grid x:Name="LayoutRoot" Background="#FF8CBF26">
+            <Rectangle Fill="#FF16811B" />
+            <TextBlock x:Name="FeedNewsTitle" Foreground="White" Text="{Binding Title}" FontSize="36" Grid.Row="0" Margin="10,10,14,10" TextWrapping="WrapWholeWords" FontWeight="Bold" />
             <Image x:Name="FeedPicture" HorizontalAlignment="Left" Height="211" Margin="10,29,0,0" Grid.Row="1" VerticalAlignment="Top" Width="380"/>
             <TextBlock x:Name="FeedInformation" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="2" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="24" Height="80"/>
-            <TextBox x:Name="CommentBox" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="3" TextWrapping="Wrap" Text="Comment" VerticalAlignment="Top" Width="376"/>
-
 
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"></RowDefinition>
-                <RowDefinition Height="250"></RowDefinition>
+                <RowDefinition Height="300"></RowDefinition>
                 <RowDefinition Height="200"></RowDefinition>
-                <RowDefinition Height="100"></RowDefinition>
             </Grid.RowDefinitions>
 
         </Grid>

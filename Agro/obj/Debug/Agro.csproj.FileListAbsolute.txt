@@ -1,5 +1,4 @@
 c:\users\kitty\documents\visual studio 2013\Projects\Agro\Agro\bin\Debug\App.xbf
-c:\users\kitty\documents\visual studio 2013\Projects\Agro\Agro\bin\Debug\ItemPage.xbf
 c:\users\kitty\documents\visual studio 2013\Projects\Agro\Agro\bin\Debug\PivotPage.xbf
 c:\users\kitty\documents\visual studio 2013\Projects\Agro\Agro\bin\Debug\Agro.xr.xml
 c:\users\kitty\documents\visual studio 2013\Projects\Agro\Agro\bin\Debug\Agro.exe
@@ -9,16 +8,12 @@ c:\users\kitty\documents\visual studio 2013\Projects\Agro\Agro\bin\Debug\AppxMan
 c:\users\kitty\documents\visual studio 2013\Projects\Agro\Agro\bin\Debug\Agro.build.appxrecipe
 c:\users\kitty\documents\visual studio 2013\Projects\Agro\Agro\obj\Debug\App.g.i.cs
 c:\users\kitty\documents\visual studio 2013\Projects\Agro\Agro\obj\Debug\App.g.cs
-c:\users\kitty\documents\visual studio 2013\Projects\Agro\Agro\obj\Debug\ItemPage.g.i.cs
-c:\users\kitty\documents\visual studio 2013\Projects\Agro\Agro\obj\Debug\ItemPage.g.cs
 c:\users\kitty\documents\visual studio 2013\Projects\Agro\Agro\obj\Debug\PivotPage.g.i.cs
 c:\users\kitty\documents\visual studio 2013\Projects\Agro\Agro\obj\Debug\PivotPage.g.cs
 c:\users\kitty\documents\visual studio 2013\Projects\Agro\Agro\obj\Debug\XamlTypeInfo.g.cs
 c:\users\kitty\documents\visual studio 2013\Projects\Agro\Agro\obj\Debug\App.xaml
-c:\users\kitty\documents\visual studio 2013\Projects\Agro\Agro\obj\Debug\ItemPage.xaml
 c:\users\kitty\documents\visual studio 2013\Projects\Agro\Agro\obj\Debug\PivotPage.xaml
 c:\users\kitty\documents\visual studio 2013\Projects\Agro\Agro\obj\Debug\App.xbf
-c:\users\kitty\documents\visual studio 2013\Projects\Agro\Agro\obj\Debug\ItemPage.xbf
 c:\users\kitty\documents\visual studio 2013\Projects\Agro\Agro\obj\Debug\PivotPage.xbf
 c:\users\kitty\documents\visual studio 2013\Projects\Agro\Agro\obj\Debug\XamlSaveStateFile.xml
 c:\users\kitty\documents\visual studio 2013\Projects\Agro\Agro\obj\Debug\Agro.exe
@@ -85,3 +80,8 @@ C:\Users\Sarun\Desktop\Agro-UI\Agro\obj\Debug\qualifiers.txt
 C:\Users\Sarun\Desktop\Agro-UI\Agro\obj\Debug\qualifiers.txt.intermediate
 C:\Users\Sarun\Desktop\Agro-UI\Agro\obj\Debug\MultipleQualifiersPerDimensionFound.txt
 C:\Users\Sarun\Desktop\Agro-UI\Agro\obj\Debug\ProjectArchitectures.txt
+C:\Users\kitty\documents\visual studio 2013\Projects\Agro\Agro\obj\Debug\LoginPage.g.i.cs
+C:\Users\kitty\documents\visual studio 2013\Projects\Agro\Agro\obj\Debug\LoginPage.g.cs
+C:\Users\kitty\documents\visual studio 2013\Projects\Agro\Agro\obj\Debug\LoginPage.xaml
+C:\Users\kitty\documents\visual studio 2013\Projects\Agro\Agro\obj\Debug\LoginPage.xbf
+C:\Users\kitty\documents\visual studio 2013\Projects\Agro\Agro\bin\Debug\LoginPage.xbf
