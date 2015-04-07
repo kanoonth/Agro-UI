@@ -39,7 +39,15 @@ C:\Users\kitty\Documents\Visual Studio 2013\Projects\Agro\Agro\obj\Debug\FeedPag
 C:\Users\kitty\Documents\Visual Studio 2013\Projects\Agro\Agro\bin\Debug\FeedPage.xbf
 C:\Users\kitty\Documents\Visual Studio 2013\Projects\Agro\Agro\obj\Debug\FeedPage.xaml
 C:\Users\kitty\Documents\Visual Studio 2013\Projects\Agro\Agro\obj\Debug\FeedPage.xbf
+C:\Users\kitty\documents\visual studio 2013\Projects\Agro\Agro\obj\Debug\LoginPage.g.i.cs
+C:\Users\kitty\documents\visual studio 2013\Projects\Agro\Agro\obj\Debug\LoginPage.g.cs
+C:\Users\kitty\documents\visual studio 2013\Projects\Agro\Agro\obj\Debug\LoginPage.xaml
+C:\Users\kitty\documents\visual studio 2013\Projects\Agro\Agro\obj\Debug\LoginPage.xbf
+C:\Users\kitty\documents\visual studio 2013\Projects\Agro\Agro\bin\Debug\LoginPage.xbf
 C:\Users\Sarun\Desktop\Agro-UI\Agro\bin\Debug\App.xbf
+C:\Users\Sarun\Desktop\Agro-UI\Agro\bin\Debug\DashboardPage.xbf
+C:\Users\Sarun\Desktop\Agro-UI\Agro\bin\Debug\NotificationListViewPage.xbf
+C:\Users\Sarun\Desktop\Agro-UI\Agro\bin\Debug\LoginPage.xbf
 C:\Users\Sarun\Desktop\Agro-UI\Agro\bin\Debug\FeedPage.xbf
 C:\Users\Sarun\Desktop\Agro-UI\Agro\bin\Debug\PivotPage.xbf
 C:\Users\Sarun\Desktop\Agro-UI\Agro\bin\Debug\Agro.xr.xml
@@ -53,15 +61,27 @@ C:\Users\Sarun\Desktop\Agro-UI\Agro\bin\Debug\Newtonsoft.Json.xml
 C:\Users\Sarun\Desktop\Agro-UI\Agro\obj\Debug\Agro.csprojResolveAssemblyReference.cache
 C:\Users\Sarun\Desktop\Agro-UI\Agro\obj\Debug\App.g.i.cs
 C:\Users\Sarun\Desktop\Agro-UI\Agro\obj\Debug\App.g.cs
+C:\Users\Sarun\Desktop\Agro-UI\Agro\obj\Debug\DashboardPage.g.i.cs
+C:\Users\Sarun\Desktop\Agro-UI\Agro\obj\Debug\DashboardPage.g.cs
+C:\Users\Sarun\Desktop\Agro-UI\Agro\obj\Debug\NotificationListViewPage.g.i.cs
+C:\Users\Sarun\Desktop\Agro-UI\Agro\obj\Debug\NotificationListViewPage.g.cs
+C:\Users\Sarun\Desktop\Agro-UI\Agro\obj\Debug\LoginPage.g.i.cs
+C:\Users\Sarun\Desktop\Agro-UI\Agro\obj\Debug\LoginPage.g.cs
 C:\Users\Sarun\Desktop\Agro-UI\Agro\obj\Debug\FeedPage.g.i.cs
 C:\Users\Sarun\Desktop\Agro-UI\Agro\obj\Debug\FeedPage.g.cs
 C:\Users\Sarun\Desktop\Agro-UI\Agro\obj\Debug\PivotPage.g.i.cs
 C:\Users\Sarun\Desktop\Agro-UI\Agro\obj\Debug\PivotPage.g.cs
 C:\Users\Sarun\Desktop\Agro-UI\Agro\obj\Debug\XamlTypeInfo.g.cs
 C:\Users\Sarun\Desktop\Agro-UI\Agro\obj\Debug\App.xaml
+C:\Users\Sarun\Desktop\Agro-UI\Agro\obj\Debug\DashboardPage.xaml
+C:\Users\Sarun\Desktop\Agro-UI\Agro\obj\Debug\NotificationListViewPage.xaml
+C:\Users\Sarun\Desktop\Agro-UI\Agro\obj\Debug\LoginPage.xaml
 C:\Users\Sarun\Desktop\Agro-UI\Agro\obj\Debug\FeedPage.xaml
 C:\Users\Sarun\Desktop\Agro-UI\Agro\obj\Debug\PivotPage.xaml
 C:\Users\Sarun\Desktop\Agro-UI\Agro\obj\Debug\App.xbf
+C:\Users\Sarun\Desktop\Agro-UI\Agro\obj\Debug\DashboardPage.xbf
+C:\Users\Sarun\Desktop\Agro-UI\Agro\obj\Debug\NotificationListViewPage.xbf
+C:\Users\Sarun\Desktop\Agro-UI\Agro\obj\Debug\LoginPage.xbf
 C:\Users\Sarun\Desktop\Agro-UI\Agro\obj\Debug\FeedPage.xbf
 C:\Users\Sarun\Desktop\Agro-UI\Agro\obj\Debug\PivotPage.xbf
 C:\Users\Sarun\Desktop\Agro-UI\Agro\obj\Debug\XamlSaveStateFile.xml
@@ -80,23 +100,3 @@ C:\Users\Sarun\Desktop\Agro-UI\Agro\obj\Debug\qualifiers.txt
 C:\Users\Sarun\Desktop\Agro-UI\Agro\obj\Debug\qualifiers.txt.intermediate
 C:\Users\Sarun\Desktop\Agro-UI\Agro\obj\Debug\MultipleQualifiersPerDimensionFound.txt
 C:\Users\Sarun\Desktop\Agro-UI\Agro\obj\Debug\ProjectArchitectures.txt
-C:\Users\kitty\documents\visual studio 2013\Projects\Agro\Agro\obj\Debug\LoginPage.g.i.cs
-C:\Users\kitty\documents\visual studio 2013\Projects\Agro\Agro\obj\Debug\LoginPage.g.cs
-C:\Users\kitty\documents\visual studio 2013\Projects\Agro\Agro\obj\Debug\LoginPage.xaml
-C:\Users\kitty\documents\visual studio 2013\Projects\Agro\Agro\obj\Debug\LoginPage.xbf
-C:\Users\kitty\documents\visual studio 2013\Projects\Agro\Agro\bin\Debug\LoginPage.xbf
-C:\Users\Sarun\Desktop\Agro-UI\Agro\bin\Debug\LoginPage.xbf
-C:\Users\Sarun\Desktop\Agro-UI\Agro\obj\Debug\LoginPage.g.i.cs
-C:\Users\Sarun\Desktop\Agro-UI\Agro\obj\Debug\LoginPage.g.cs
-C:\Users\Sarun\Desktop\Agro-UI\Agro\obj\Debug\LoginPage.xaml
-C:\Users\Sarun\Desktop\Agro-UI\Agro\obj\Debug\LoginPage.xbf
-C:\Users\Sarun\Desktop\Agro-UI\Agro\obj\Debug\NotificationListViewPage.g.i.cs
-C:\Users\Sarun\Desktop\Agro-UI\Agro\obj\Debug\NotificationListViewPage.g.cs
-C:\Users\Sarun\Desktop\Agro-UI\Agro\obj\Debug\NotificationListViewPage.xaml
-C:\Users\Sarun\Desktop\Agro-UI\Agro\obj\Debug\NotificationListViewPage.xbf
-C:\Users\Sarun\Desktop\Agro-UI\Agro\bin\Debug\NotificationListViewPage.xbf
-C:\Users\Sarun\Desktop\Agro-UI\Agro\bin\Debug\DashboardPage.xbf
-C:\Users\Sarun\Desktop\Agro-UI\Agro\obj\Debug\DashboardPage.g.i.cs
-C:\Users\Sarun\Desktop\Agro-UI\Agro\obj\Debug\DashboardPage.g.cs
-C:\Users\Sarun\Desktop\Agro-UI\Agro\obj\Debug\DashboardPage.xaml
-C:\Users\Sarun\Desktop\Agro-UI\Agro\obj\Debug\DashboardPage.xbf

@@ -36,7 +36,7 @@ namespace Agro
         private readonly NavigationHelper navigationHelper;
         private readonly ObservableDictionary defaultViewModel = new ObservableDictionary();
         private readonly ResourceLoader resourceLoader = ResourceLoader.GetForCurrentView("Resources");
-        
+
         public PivotPage()
         {
             this.InitializeComponent();
@@ -46,8 +46,12 @@ namespace Agro
             this.navigationHelper.SaveState += this.NavigationHelper_SaveState;
 
             GetFeedList();
-            GetNotifications();
-            GetDashboard();
+            if (IsLoggedIn())
+            {
+                GetNotifications();
+                GetDashboard();
+                GetName();
+            }
         }
 
         #region Navigation
@@ -99,11 +103,12 @@ namespace Agro
             }
 
             string command = e.Parameter as string;
-            Debug.WriteLine(command);
+
             if (command.Equals("LoggedIn"))
             {
                 GetNotifications();
                 GetDashboard();
+                GetName();
             }
             Debug.WriteLine("OnNavigatedTo");
         }
@@ -117,10 +122,10 @@ namespace Agro
             }
             else if (item.Equals("Agro.DataModel.Notification"))
             {
-                
-            } 
-            
-            
+
+            }
+
+
         }
 
         #endregion
@@ -147,67 +152,80 @@ namespace Agro
 
         private async void GetNotifications()
         {
-            if (IsLoggedIn())
+            var localSettings = Windows.Storage.ApplicationData.Current.LocalSettings;
+            try
             {
-                var localSettings = Windows.Storage.ApplicationData.Current.LocalSettings;
-                try
-                {
-                    HttpClient httpClient = new HttpClient();
-                    httpClient.DefaultRequestHeaders.Accept.TryParseAdd("application/json");
-                    string uri = String.Format("{0}notifications.json?username={1}&auth_token={2}", HOSTNAME, localSettings.Values["username"], localSettings.Values["token"]);
-                    string responseString = await httpClient.GetStringAsync(new Uri(uri));
+                HttpClient httpClient = new HttpClient();
+                httpClient.DefaultRequestHeaders.Accept.TryParseAdd("application/json");
+                string uri = String.Format("{0}notifications.json?username={1}&auth_token={2}", HOSTNAME, localSettings.Values["username"], localSettings.Values["token"]);
+                string responseString = await httpClient.GetStringAsync(new Uri(uri));
 
-                    List<Notification> notifications = JsonConvert.DeserializeObject<List<Notification>>(responseString);
+                List<Notification> notifications = JsonConvert.DeserializeObject<List<Notification>>(responseString);
 
-                    NotificationListViewPage notificationListViewPage = new NotificationListViewPage(notifications);
+                NotificationListViewPage notificationListViewPage = new NotificationListViewPage(notifications);
 
-                    PivotItem pivotItem = new PivotItem();
-                    pivotItem.Header = resourceLoader.GetString("NotificationPivotHeader");
-                    pivotItem.Content = notificationListViewPage;
-                    PivotController.Items.Add(pivotItem);
-                    pivotItem = null;
+                PivotItem pivotItem = new PivotItem();
+                pivotItem.Header = resourceLoader.GetString("NotificationPivotHeader");
+                pivotItem.Content = notificationListViewPage;
+                PivotController.Items.Add(pivotItem);
+                pivotItem = null;
 
-                }
-                catch (Exception ex)
-                {
-                    Debug.WriteLine("Fail: GetNotifications()");
-                    //Debug.WriteLine(ex.ToString());
-                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine("Fail: GetNotifications()");
+                //Debug.WriteLine(ex.ToString());
             }
         }
 
         private async void GetDashboard()
         {
-            if (IsLoggedIn())
+            var localSettings = Windows.Storage.ApplicationData.Current.LocalSettings;
+            var dashboards = new List<Dashboard>();
+            try
             {
-                var localSettings = Windows.Storage.ApplicationData.Current.LocalSettings;
-                var dashboards = new List<Dashboard>();
-                try
-                {
-                    HttpClient httpClient = new HttpClient();
-                    httpClient.DefaultRequestHeaders.Accept.TryParseAdd("application/json");
-                    string uri = String.Format("{0}cultivated_areas.json?username={1}&auth_token={2}", HOSTNAME, localSettings.Values["username"], localSettings.Values["token"]);
-                    string responseString = await httpClient.GetStringAsync(new Uri(uri));
-                    dashboards = JsonConvert.DeserializeObject<List<Dashboard>>(responseString);
+                HttpClient httpClient = new HttpClient();
+                httpClient.DefaultRequestHeaders.Accept.TryParseAdd("application/json");
+                string uri = String.Format("{0}cultivated_areas.json?username={1}&auth_token={2}", HOSTNAME, localSettings.Values["username"], localSettings.Values["token"]);
+                string responseString = await httpClient.GetStringAsync(new Uri(uri));
+                dashboards = JsonConvert.DeserializeObject<List<Dashboard>>(responseString);
 
-                    PivotItem pivotItem;
-                    for (int i = 0; i < dashboards.Count; i++)
-                    {
-                        pivotItem = new PivotItem();
-                        pivotItem.Header = dashboards.ElementAt<Dashboard>(i).Name;
-                        pivotItem.Content = new DashboardPage(dashboards[i]);
-                        PivotController.Items.Add(pivotItem);
-                        pivotItem = null;
-                    }
-
-                }
-                catch (Exception ex)
+                PivotItem pivotItem;
+                for (int i = 0; i < dashboards.Count; i++)
                 {
-                    Debug.WriteLine("Fail: GetDashboard()");
-                    //Debug.WriteLine(ex.ToString());
+                    pivotItem = new PivotItem();
+                    pivotItem.Header = dashboards.ElementAt<Dashboard>(i).Name;
+                    pivotItem.Content = new DashboardPage(dashboards[i]);
+                    PivotController.Items.Add(pivotItem);
+                    pivotItem = null;
                 }
+
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine("Fail: GetDashboard()");
+                //Debug.WriteLine(ex.ToString());
             }
 
+        }
+
+        private async void GetName()
+        {
+            try
+            {
+                var localSettings = Windows.Storage.ApplicationData.Current.LocalSettings;
+                HttpClient httpClient = new HttpClient();
+                httpClient.DefaultRequestHeaders.Accept.TryParseAdd("application/json");
+                string uri = String.Format("{0}profile.json?username={1}&auth_token={2}", HOSTNAME, localSettings.Values["username"], localSettings.Values["token"]);
+                string responseString = await httpClient.GetStringAsync(new Uri(uri));
+                User user = JsonConvert.DeserializeObject<User>(responseString);
+                NameAtAppBar.Label = user.Name;
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine("Fail: GetFeedList()");
+                //Debug.WriteLine(ex.ToString());
+            }
         }
 
         #endregion
