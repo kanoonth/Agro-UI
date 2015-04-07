@@ -31,7 +31,7 @@ namespace Agro
 {
     public sealed partial class PivotPage : Page
     {
-        public const string HostName = "http://obscure-sea-2022.herokuapp.com/";
+        public const string HOSTNAME = "http://obscure-sea-2022.herokuapp.com/";
 
         private readonly NavigationHelper navigationHelper;
         private readonly ObservableDictionary defaultViewModel = new ObservableDictionary();
@@ -133,7 +133,7 @@ namespace Agro
             {
                 HttpClient httpClient = new HttpClient();
                 httpClient.DefaultRequestHeaders.Accept.TryParseAdd("application/json");
-                string responseString = await httpClient.GetStringAsync(new Uri(HostName + "contents.json"));
+                string responseString = await httpClient.GetStringAsync(new Uri(HOSTNAME + "contents.json"));
 
                 var feedList = JsonConvert.DeserializeObject<List<FeedItem>>(responseString);
                 FeedListView.ItemsSource = feedList;
@@ -142,6 +142,37 @@ namespace Agro
             {
                 Debug.WriteLine("Fail: GetFeedList()");
                 //Debug.WriteLine(ex.ToString());
+            }
+        }
+
+        private async void GetNotifications()
+        {
+            if (IsLoggedIn())
+            {
+                var localSettings = Windows.Storage.ApplicationData.Current.LocalSettings;
+                try
+                {
+                    HttpClient httpClient = new HttpClient();
+                    httpClient.DefaultRequestHeaders.Accept.TryParseAdd("application/json");
+                    string uri = String.Format("{0}notifications.json?username={1}&auth_token={2}", HOSTNAME, localSettings.Values["username"], localSettings.Values["token"]);
+                    string responseString = await httpClient.GetStringAsync(new Uri(uri));
+
+                    List<Notification> notifications = JsonConvert.DeserializeObject<List<Notification>>(responseString);
+
+                    NotificationListViewPage notificationListViewPage = new NotificationListViewPage(notifications);
+
+                    PivotItem pivotItem = new PivotItem();
+                    pivotItem.Header = resourceLoader.GetString("NotificationPivotHeader");
+                    pivotItem.Content = notificationListViewPage;
+                    PivotController.Items.Add(pivotItem);
+                    pivotItem = null;
+
+                }
+                catch (Exception ex)
+                {
+                    Debug.WriteLine("Fail: GetNotifications()");
+                    //Debug.WriteLine(ex.ToString());
+                }
             }
         }
 
@@ -155,7 +186,7 @@ namespace Agro
                 {
                     HttpClient httpClient = new HttpClient();
                     httpClient.DefaultRequestHeaders.Accept.TryParseAdd("application/json");
-                    string uri = String.Format("{0}cultivated_areas.json?username={1}&auth_token={2}", HostName, localSettings.Values["username"], localSettings.Values["token"]);
+                    string uri = String.Format("{0}cultivated_areas.json?username={1}&auth_token={2}", HOSTNAME, localSettings.Values["username"], localSettings.Values["token"]);
                     string responseString = await httpClient.GetStringAsync(new Uri(uri));
                     dashboards = JsonConvert.DeserializeObject<List<Dashboard>>(responseString);
 
@@ -164,7 +195,7 @@ namespace Agro
                     {
                         pivotItem = new PivotItem();
                         pivotItem.Header = dashboards.ElementAt<Dashboard>(i).Name;
-                        pivotItem.Content = new LoginPage();
+                        pivotItem.Content = new DashboardPage(dashboards[i]);
                         PivotController.Items.Add(pivotItem);
                         pivotItem = null;
                     }
@@ -179,47 +210,13 @@ namespace Agro
 
         }
 
-        private async void GetNotifications()
-        {
-            if (IsLoggedIn())
-            {
-                var localSettings = Windows.Storage.ApplicationData.Current.LocalSettings;
-                try
-                {
-                    HttpClient httpClient = new HttpClient();
-                    httpClient.DefaultRequestHeaders.Accept.TryParseAdd("application/json");
-                    string uri = String.Format("{0}notifications.json?username={1}&auth_token={2}", HostName, localSettings.Values["username"], localSettings.Values["token"]);
-                    string responseString = await httpClient.GetStringAsync(new Uri(uri));
-
-                    List<Notification> notifications = JsonConvert.DeserializeObject<List<Notification>>(responseString);
-
-                    NotificationListViewPage notificationListViewPage = new NotificationListViewPage();
-                    notificationListViewPage.SetItemSource(notifications);
-                    
-                    PivotItem pivotItem = new PivotItem();
-                    pivotItem.Header = resourceLoader.GetString("NotificationPivotHeader");
-                    pivotItem.Content = notificationListViewPage;
-                    PivotController.Items.Add(pivotItem);
-                    pivotItem = null;
-
-
-
-                }
-                catch (Exception ex)
-                {
-                    Debug.WriteLine("Fail: GetNotifications()");
-                    //Debug.WriteLine(ex.ToString());
-                }
-            }
-        }
-
         #endregion
 
         #region Logout
 
         private async void ClickToLogOut(object sender, RoutedEventArgs e)
         {
-            var uri = new Uri(HostName + "users/sign_out.json");
+            var uri = new Uri(HOSTNAME + "users/sign_out.json");
             var localSettings = Windows.Storage.ApplicationData.Current.LocalSettings;
 
             HttpClient httpClient = new HttpClient();

@@ -56,7 +56,7 @@ namespace Agro
             PasswordField.Password = "";
             UsernameField.Text = "";
 
-            var uri = new Uri(PivotPage.HostName + "users/sign_in");
+            var uri = new Uri(PivotPage.HOSTNAME + "users/sign_in");
             var json = "{\"user\": {\"username\" :\"" + username + "\", \"password\": \"" + password + "\" }}";
 
             HttpClient httpClient = new HttpClient();

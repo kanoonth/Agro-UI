@@ -13,7 +13,7 @@
     <ScrollViewer>
         <Grid x:Name="LayoutRoot" Background="#FF8CBF26">
             <Rectangle Fill="#FF16811B" />
-            <TextBlock x:Name="FeedNewsTitle" Foreground="White" Text="{Binding Title}" FontSize="36" Grid.Row="0" Margin="10,10,14,10" TextWrapping="WrapWholeWords" FontWeight="Bold" />
+            <TextBlock x:Name="FeedNewsTitle" Foreground="White" FontSize="36" Grid.Row="0" Margin="10,10,14,10" TextWrapping="WrapWholeWords" FontWeight="Bold" />
             <Image x:Name="FeedPicture" HorizontalAlignment="Left" Height="211" Margin="10,29,0,0" Grid.Row="1" VerticalAlignment="Top" Width="380"/>
             <TextBlock x:Name="FeedInformation" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="2" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="24" Height="80"/>
 

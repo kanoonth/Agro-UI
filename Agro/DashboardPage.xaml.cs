@@ -5,11 +5,8 @@ using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
-using Windows.ApplicationModel.Resources;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
-using Windows.Storage.Streams;
-using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -18,22 +15,32 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Media.Imaging;
 using Windows.UI.Xaml.Navigation;
-using Windows.Web.Http;
 
 namespace Agro
 {
 
-    public sealed partial class NotificationListViewPage : Page
+    public sealed partial class DashboardPage : Page
     {
-        private ResourceLoader resourceLoader;
 
+        public DashboardPage()
+        {
+            Initialize(null);
+        }
 
-        public NotificationListViewPage(List<Notification> list)
+        public DashboardPage(Dashboard dashboard)
+        {
+            Initialize(dashboard);
+        }
+
+        private void Initialize(Dashboard dashboard)
         {
             this.InitializeComponent();
             Windows.Phone.UI.Input.HardwareButtons.BackPressed += HardwareButtons_BackPressed;
-            resourceLoader = new ResourceLoader();
-            NotificationListView.ItemsSource = list;
+            
+            if (dashboard != null)
+            {
+                Latitude.Text = dashboard.Latitude;
+            }
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
@@ -49,6 +56,5 @@ namespace Agro
                 Frame.GoBack();
             }
         }
-
     }
 }
