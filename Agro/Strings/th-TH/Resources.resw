@@ -126,6 +126,9 @@
   <data name="InvalidLogin" xml:space="preserve">
     <value>ชื่อผู้ใช้ หรือ รหัสผ่าน ผิดพลาด</value>
   </data>
+  <data name="LoginAppBar.Label" xml:space="preserve">
+    <value>เข้าสู่ระบบ</value>
+  </data>
   <data name="LoginButton.Content" xml:space="preserve">
     <value>เข้าสู่ระบบ</value>
   </data>
@@ -138,7 +141,10 @@
   <data name="LogoutButton.Label" xml:space="preserve">
     <value>ออกจากระบบ</value>
   </data>
-  <data name="NotificationPivot.Header" xml:space="preserve">
+  <data name="LogoutMessage" xml:space="preserve">
+    <value>ออกจากระบบ</value>
+  </data>
+  <data name="NotificationPivotHeader" xml:space="preserve">
     <value>แจ้งเตือน</value>
   </data>
   <data name="PasswordLabel.Text" xml:space="preserve">

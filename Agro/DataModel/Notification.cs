@@ -7,7 +7,7 @@ using Newtonsoft.Json;
 
 namespace Agro.DataModel
 {
-    class Notification
+    public class Notification
     {
 
         [JsonProperty("id")]

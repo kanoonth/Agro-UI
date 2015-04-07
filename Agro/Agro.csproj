@@ -80,6 +80,10 @@
   </PropertyGroup>
   <ItemGroup>
     <!-- A reference to the entire .Net Framework and Windows SDK are automatically included -->
+    <Page Include="NotificationListViewPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="LoginPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -104,6 +108,9 @@
     <Compile Include="DataModel\Dashboard.cs" />
     <Compile Include="DataModel\Notification.cs" />
     <Compile Include="DataModel\FeedItem.cs" />
+    <Compile Include="NotificationListViewPage.xaml.cs">
+      <DependentUpon>NotificationListViewPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="LoginPage.xaml.cs">
       <DependentUpon>LoginPage.xaml</DependentUpon>
     </Compile>

@@ -118,13 +118,16 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="FeedPivot.Header" xml:space="preserve">
-    <value>News</value>
+    <value>Newsfeed</value>
   </data>
   <data name="GreetingLogin" xml:space="preserve">
     <value>Hello</value>
   </data>
   <data name="InvalidLogin" xml:space="preserve">
     <value>Invalid username or password</value>
+  </data>
+  <data name="LoginAppBar.Label" xml:space="preserve">
+    <value>Login</value>
   </data>
   <data name="LoginButton.Content" xml:space="preserve">
     <value>Login</value>
@@ -138,7 +141,10 @@
   <data name="LogoutButton.Label" xml:space="preserve">
     <value>Logout</value>
   </data>
-  <data name="NotificationPivot.Header" xml:space="preserve">
+  <data name="LogoutMessage" xml:space="preserve">
+    <value>Logged out</value>
+  </data>
+  <data name="NotificationPivotHeader" xml:space="preserve">
     <value>Notification</value>
   </data>
   <data name="PasswordLabel.Text" xml:space="preserve">

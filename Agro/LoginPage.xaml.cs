@@ -25,11 +25,13 @@ namespace Agro
 
     public sealed partial class LoginPage : Page
     {
+        private ResourceLoader Resource;
 
         public LoginPage()
         {
             this.InitializeComponent();
             Windows.Phone.UI.Input.HardwareButtons.BackPressed += HardwareButtons_BackPressed;
+            Resource = new ResourceLoader();
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
@@ -67,16 +69,14 @@ namespace Agro
             if (loginResult.Equals("Ok"))
             {
                 KeepData(token, username);
-                ResourceLoader rl = new ResourceLoader();
-                string greetingLogin = rl.GetString("GreetingLogin");
-                MessageBoxDisplay(greetingLogin + username);
+                string greetingLogin = Resource.GetString("GreetingLogin");
+                MessageBoxDisplay(greetingLogin + ", " + username);
                 Frame.Navigate(typeof(PivotPage),"LoggedIn");
             }
             else if (loginResult.Equals("Unauthorized"))
             {
-                ResourceLoader rl = new ResourceLoader();
-                string InvalidLogin = rl.GetString("InvalidLogin");
-                MessageBoxDisplay(InvalidLogin + username);
+                string InvalidLogin = Resource.GetString("InvalidLogin");
+                MessageBoxDisplay(InvalidLogin);
                 UsernameField.Text = "";
                 PasswordField.Password = "";
             }
@@ -84,7 +84,6 @@ namespace Agro
             {
                 Debug.WriteLine(responseString.StatusCode);
             }
-
         }
 
 

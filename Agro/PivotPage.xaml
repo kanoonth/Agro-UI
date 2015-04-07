@@ -19,7 +19,7 @@
     </Page.Transitions>
 
     <Grid>
-        <Pivot x:Uid="Pivot" x:Name="pivot" CommonNavigationTransitionInfo.IsStaggerElement="True" SelectionChanged="pivot_SelectionChanged">
+        <Pivot x:Uid="Pivot" x:Name="PivotController" CommonNavigationTransitionInfo.IsStaggerElement="True" >
             <!--Pivot item one-->
             <PivotItem
                 x:Uid="FeedPivot"
@@ -48,44 +48,12 @@
                     </ListView.ItemTemplate>
                 </ListView>
             </PivotItem>
-
-            <!--Pivot item two-->
-            <PivotItem
-                x:Uid="NotificationPivot"
-                x:Name="Nofifications"
-                Margin="19,14.5,0,0"
-                >
-                <!--Double line list no text wrapping-->
-                <ListView x:Name="NotificationListView"
-                    ItemsSource="{Binding Items}"
-                    IsItemClickEnabled="True"
-                    ItemClick="ItemView_ItemClick"
-                    Loaded="SecondPivot_Loaded"
-                    ContinuumNavigationTransitionInfo.ExitElementContainer="True">
-                    <ListView.ItemTemplate>
-                        <DataTemplate>
-                            <StackPanel Margin="0,0,0,9.5">
-                                <TextBlock
-                                    Text="{Binding DiseaseName}"
-                                    Pivot.SlideInAnimationGroup="1"
-                                    CommonNavigationTransitionInfo.IsStaggerElement="True"
-                                    Style="{StaticResource ListViewItemTextBlockStyle}" Foreground="White"/>
-                                <TextBlock
-                                    Text="{Binding PercentCF}"
-                                    Pivot.SlideInAnimationGroup="2"
-                                    CommonNavigationTransitionInfo.IsStaggerElement="True"
-                                    Style="{StaticResource ListViewItemContentTextBlockStyle}" Foreground="White"/>
-                            </StackPanel>
-                        </DataTemplate>
-                    </ListView.ItemTemplate>
-                </ListView>
-            </PivotItem>
            
         </Pivot>
     </Grid>
 
     <Page.BottomAppBar>
-        <CommandBar Background="#FF16811B">
+        <CommandBar x:Name="CommandBar" Background="#FF16811B">
             <AppBarButton x:Uid="LoginAppBar" x:Name="LoginAppBar" Icon="Contact" Click="AddAppBarButton_Click" Foreground="White" />
             <CommandBar.SecondaryCommands>
                 <AppBarButton x:Uid="NameAtAppBar" x:Name="NameAtAppBar" Label="Your Name" Foreground="White" Visibility="Collapsed" />

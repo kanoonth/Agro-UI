@@ -85,3 +85,13 @@ C:\Users\kitty\documents\visual studio 2013\Projects\Agro\Agro\obj\Debug\LoginPa
 C:\Users\kitty\documents\visual studio 2013\Projects\Agro\Agro\obj\Debug\LoginPage.xaml
 C:\Users\kitty\documents\visual studio 2013\Projects\Agro\Agro\obj\Debug\LoginPage.xbf
 C:\Users\kitty\documents\visual studio 2013\Projects\Agro\Agro\bin\Debug\LoginPage.xbf
+C:\Users\Sarun\Desktop\Agro-UI\Agro\bin\Debug\LoginPage.xbf
+C:\Users\Sarun\Desktop\Agro-UI\Agro\obj\Debug\LoginPage.g.i.cs
+C:\Users\Sarun\Desktop\Agro-UI\Agro\obj\Debug\LoginPage.g.cs
+C:\Users\Sarun\Desktop\Agro-UI\Agro\obj\Debug\LoginPage.xaml
+C:\Users\Sarun\Desktop\Agro-UI\Agro\obj\Debug\LoginPage.xbf
+C:\Users\Sarun\Desktop\Agro-UI\Agro\obj\Debug\NotificationListViewPage.g.i.cs
+C:\Users\Sarun\Desktop\Agro-UI\Agro\obj\Debug\NotificationListViewPage.g.cs
+C:\Users\Sarun\Desktop\Agro-UI\Agro\obj\Debug\NotificationListViewPage.xaml
+C:\Users\Sarun\Desktop\Agro-UI\Agro\obj\Debug\NotificationListViewPage.xbf
+C:\Users\Sarun\Desktop\Agro-UI\Agro\bin\Debug\NotificationListViewPage.xbf

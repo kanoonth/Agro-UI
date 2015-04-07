@@ -36,7 +36,7 @@ namespace Agro
         private readonly NavigationHelper navigationHelper;
         private readonly ObservableDictionary defaultViewModel = new ObservableDictionary();
         private readonly ResourceLoader resourceLoader = ResourceLoader.GetForCurrentView("Resources");
-
+        
         public PivotPage()
         {
             this.InitializeComponent();
@@ -44,6 +44,7 @@ namespace Agro
             this.navigationHelper = new NavigationHelper(this);
             this.navigationHelper.LoadState += this.NavigationHelper_LoadState;
             this.navigationHelper.SaveState += this.NavigationHelper_SaveState;
+
             GetFeedList();
             GetNotifications();
             GetDashboard();
@@ -72,11 +73,14 @@ namespace Agro
 
         private void AddAppBarButton_Click(object sender, RoutedEventArgs e)
         {
-            if (!IsLoggedIn())
+            if (IsLoggedIn())
+            {
+                CommandBar.IsOpen = !CommandBar.IsOpen;
+            }
+            else
             {
                 Frame.Navigate(typeof(LoginPage));
             }
-
         }
 
         protected override void OnNavigatedFrom(NavigationEventArgs e)
@@ -94,12 +98,12 @@ namespace Agro
                 LogoutButton.Visibility = Visibility.Visible;
             }
 
-            Debug.WriteLine(e.ToString());
-            if (e.ToString().Equals("LoggedIn"))
+            string command = e.Parameter as string;
+            Debug.WriteLine(command);
+            if (command.Equals("LoggedIn"))
             {
-
-                GetDashboard();
                 GetNotifications();
+                GetDashboard();
             }
             Debug.WriteLine("OnNavigatedTo");
         }
@@ -117,16 +121,6 @@ namespace Agro
             } 
             
             
-        }
-
-        private async void SecondPivot_Loaded(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void pivot_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
         }
 
         #endregion
@@ -165,15 +159,14 @@ namespace Agro
                     string responseString = await httpClient.GetStringAsync(new Uri(uri));
                     dashboards = JsonConvert.DeserializeObject<List<Dashboard>>(responseString);
 
-                    PivotItem pvt;
+                    PivotItem pivotItem;
                     for (int i = 0; i < dashboards.Count; i++)
                     {
-                        pvt = new PivotItem();
-                        pvt.Header = dashboards.ElementAt<Dashboard>(i).Name;
-                        var stack = new StackPanel();
-                        pvt.Content = stack;
-                        pivot.Items.Add(pvt);
-                        pvt = null;
+                        pivotItem = new PivotItem();
+                        pivotItem.Header = dashboards.ElementAt<Dashboard>(i).Name;
+                        pivotItem.Content = new LoginPage();
+                        PivotController.Items.Add(pivotItem);
+                        pivotItem = null;
                     }
 
                 }
@@ -198,8 +191,18 @@ namespace Agro
                     string uri = String.Format("{0}notifications.json?username={1}&auth_token={2}", HostName, localSettings.Values["username"], localSettings.Values["token"]);
                     string responseString = await httpClient.GetStringAsync(new Uri(uri));
 
-                    var notifications = JsonConvert.DeserializeObject<List<Notification>>(responseString);
-                    NotificationListView.ItemsSource = notifications;
+                    List<Notification> notifications = JsonConvert.DeserializeObject<List<Notification>>(responseString);
+
+                    NotificationListViewPage notificationListViewPage = new NotificationListViewPage();
+                    notificationListViewPage.SetItemSource(notifications);
+                    
+                    PivotItem pivotItem = new PivotItem();
+                    pivotItem.Header = resourceLoader.GetString("NotificationPivotHeader");
+                    pivotItem.Content = notificationListViewPage;
+                    PivotController.Items.Add(pivotItem);
+                    pivotItem = null;
+
+
 
                 }
                 catch (Exception ex)
@@ -232,6 +235,14 @@ namespace Agro
 
             NameAtAppBar.Visibility = Visibility.Collapsed;
             LogoutButton.Visibility = Visibility.Collapsed;
+
+            var totalCount = PivotController.Items.Count;
+            for (int i = 1; i < totalCount; i++)
+            {
+                PivotController.Items.RemoveAt(1);
+            }
+            MessageDialog msgbox = new MessageDialog(resourceLoader.GetString("LogoutMessage"));
+            await msgbox.ShowAsync();
 
         }
 
