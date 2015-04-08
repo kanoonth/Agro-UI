@@ -117,6 +117,15 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="CultivatedArea" xml:space="preserve">
+    <value>พื้นที่</value>
+  </data>
+  <data name="EmptyFeed" xml:space="preserve">
+    <value>ไม่มีข่าว</value>
+  </data>
+  <data name="EmptyNotification" xml:space="preserve">
+    <value>ไม่มีการแจ้งเตือน</value>
+  </data>
   <data name="FeedPivot.Header" xml:space="preserve">
     <value>ข่าว</value>
   </data>

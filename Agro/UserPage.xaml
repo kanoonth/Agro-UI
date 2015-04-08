@@ -7,18 +7,18 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
     <Page.Background>
-        <SolidColorBrush Color="#FF8CBF26"/>
+        <SolidColorBrush Color="#FFACE25C"/>
     </Page.Background>
 
-    <ScrollViewer>
-        <Grid x:Name="LayoutRoot" Background="#FF8CBF26">
-            <Rectangle Fill="#FF16811B" />
-            <TextBlock x:Name="Name" Foreground="White" FontSize="36" Grid.Row="0" Margin="10,10,14,10" TextWrapping="WrapWholeWords" FontWeight="Bold" />
-            <TextBlock x:Name="PhoneNumber" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="24" Height="80"/>
+    <ScrollViewer Background="White">
+        <Grid x:Name="LayoutRoot">
+            <Rectangle Fill="#FFACE25C" />
+            <TextBlock Text="Name" x:Name="Name" Foreground="#34495E" FontSize="36" Grid.Row="0" Margin="10,10,14,10" TextWrapping="WrapWholeWords" FontWeight="Bold" />
+            <TextBlock Text="PhoneNumber" x:Name="PhoneNumber" Foreground="#34495E" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="24" Height="80"/>
 
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"></RowDefinition>
-                <RowDefinition Height="300"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
             </Grid.RowDefinitions>
 
         </Grid>

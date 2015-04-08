@@ -22,5 +22,8 @@ namespace Agro.DataModel
         [JsonProperty("plantation_date")]
         public string PlantationDate { get; set; }
 
+        [JsonProperty("plantation_name")]
+        public string PlantationName { get; set; }
+
     }
 }

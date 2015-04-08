@@ -39,7 +39,9 @@ namespace Agro
             
             if (dashboard != null)
             {
-                Latitude.Text = dashboard.Latitude;
+                Name.Text = dashboard.Name;
+                PlantationName.Text = dashboard.PlantationName;
+                PlantationDate.Text = dashboard.PlantationDate;
             }
         }
 

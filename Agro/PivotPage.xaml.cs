@@ -31,7 +31,7 @@ namespace Agro
 {
     public sealed partial class PivotPage : Page
     {
-        public const string HOSTNAME = "http://obscure-sea-2022.herokuapp.com/";
+        public const string HOSTNAME = "http://agro-ku.cloudapp.net/";
 
         private readonly NavigationHelper navigationHelper;
         private readonly ObservableDictionary defaultViewModel = new ObservableDictionary();
@@ -142,6 +142,13 @@ namespace Agro
                 string responseString = await httpClient.GetStringAsync(new Uri(HOSTNAME + "contents.json"));
 
                 var feedList = JsonConvert.DeserializeObject<List<FeedItem>>(responseString);
+                FeedListView.IsItemClickEnabled = feedList.Count != 0;
+                if (feedList.Count == 0)
+                {
+                    FeedItem f = new FeedItem();
+                    f.Title = resourceLoader.GetString("EmptyFeed");
+                    feedList.Add(f);
+                }
                 FeedListView.ItemsSource = feedList;
             }
             catch (Exception ex)
@@ -163,7 +170,14 @@ namespace Agro
 
                 List<Notification> notifications = JsonConvert.DeserializeObject<List<Notification>>(responseString);
 
-                NotificationListViewPage notificationListViewPage = new NotificationListViewPage(notifications);
+                bool isItemClickEnabled = notifications.Count != 0;
+                if (notifications.Count == 0)
+                {
+                    Notification n = new Notification();
+                    n.DiseaseName = resourceLoader.GetString("EmptyNotification");
+                    notifications.Add(n);
+                }
+                NotificationListViewPage notificationListViewPage = new NotificationListViewPage(notifications, isItemClickEnabled);
 
                 PivotItem pivotItem = new PivotItem();
                 pivotItem.Header = resourceLoader.GetString("NotificationPivotHeader");
@@ -195,7 +209,7 @@ namespace Agro
                 for (int i = 0; i < dashboards.Count; i++)
                 {
                     pivotItem = new PivotItem();
-                    pivotItem.Header = dashboards.ElementAt<Dashboard>(i).Name;
+                    pivotItem.Header = resourceLoader.GetString("CultivatedArea") + " " + (i + 1);
                     pivotItem.Content = new DashboardPage(dashboards[i]);
                     PivotController.Items.Add(pivotItem);
                     pivotItem = null;

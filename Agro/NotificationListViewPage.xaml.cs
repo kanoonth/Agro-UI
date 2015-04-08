@@ -28,11 +28,12 @@ namespace Agro
         private ResourceLoader resourceLoader;
 
 
-        public NotificationListViewPage(List<Notification> list)
+        public NotificationListViewPage(List<Notification> list, bool isItemClickEnabled)
         {
             this.InitializeComponent();
             Windows.Phone.UI.Input.HardwareButtons.BackPressed += HardwareButtons_BackPressed;
             resourceLoader = new ResourceLoader();
+            NotificationListView.IsItemClickEnabled = isItemClickEnabled;
             NotificationListView.ItemsSource = list;
         }
 

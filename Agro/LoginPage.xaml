@@ -7,20 +7,20 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
     <Page.Background>
-        <SolidColorBrush Color="#FF8CBF26"/>
+        <SolidColorBrush Color="#FFACE25C"/>
     </Page.Background>
 
-    <Grid x:Name="LayoutRoot" Background="#FF8CBF26">
-        <Rectangle Fill="#FF16811B" />
-        <TextBlock x:Name="FeedNewsTitle" Foreground="White" x:Uid="LoginHeader" FontSize="36" Grid.Row="0" Margin="10,10,14,10" TextWrapping="WrapWholeWords" FontWeight="Bold" />
+    <Grid x:Name="LayoutRoot" Background="White">
+        <Rectangle Fill="#FFACE25C" />
+        <TextBlock Foreground="#FF34495E" Text="Login" x:Uid="LoginHeader" FontSize="36" Grid.Row="0" Margin="10,10,14,10" TextWrapping="WrapWholeWords" FontWeight="Bold" />
 
         <StackPanel Grid.Row="1" x:Name="LoginPanel" Visibility="Visible">
-            <TextBlock x:Uid="UsernameLabel" Margin="37,50,71.833,0" FontSize="36" Foreground="White" />
-            <TextBox x:Name="UsernameField" Margin="37,20,71.833,0" Height="25" />
-            <TextBlock x:Uid="PasswordLabel" Margin="37,30,71.833,0" FontSize="36" Foreground="White"/>
-            <PasswordBox x:Name="PasswordField" Margin="37,20,71.833,0" Height="25"/>
+            <TextBlock Text="Username" x:Uid="UsernameLabel" Margin="37,50,71.833,0" FontSize="36" Foreground="#FF34495E" />
+            <TextBox  x:Name="UsernameField" Margin="37,20,71.833,0" Height="25" Foreground="#FF34495E" Background="White" BorderBrush="#FFBDC3C7" BorderThickness="1" />
+            <TextBlock Text="Password"  x:Uid="PasswordLabel" Margin="37,30,71.833,0" FontSize="36" Foreground="#FF34495E"/>
+            <PasswordBox x:Name="PasswordField" Margin="37,20,71.833,0" Height="25" Foreground="#FF34495E" BorderBrush="#FFBDC3C7" Background="White" BorderThickness="1"/>
             <StackPanel Orientation="Horizontal">
-                <Button x:Name="LoginButton" Margin="37,20,71.833,0" x:Uid="LoginButton" Click="ClickToLogin" Background="#FF16811B"/>
+                <Button x:Name="LoginButton" Margin="37,20,71.833,0" x:Uid="LoginButton" Click="ClickToLogin" Background="#FF1ABC9C" Foreground="White" BorderThickness="0" />
             </StackPanel>
         </StackPanel>
 

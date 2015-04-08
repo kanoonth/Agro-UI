@@ -11,10 +11,14 @@
     </Page.Background>
 
     <ScrollViewer>
-        <Grid x:Name="LayoutRoot" Background="#FF8CBF26">
-            <TextBlock Text="ll"  x:Name="Latitude" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="24" Height="80"/>
+        <Grid x:Name="LayoutRoot" Background="White">
+            <TextBlock Text="Name"  x:Name="Name" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="24" Height="80" Foreground="#FF34495E"/>
+            <TextBlock Text="PlantationDate"  x:Name="PlantationDate" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="24" Height="80" Foreground="#FF34495E"/>
+            <TextBlock Text="PlantationName"  x:Name="PlantationName" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="2" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="24" Height="80" Foreground="#FF34495E"/>
 
             <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
                 <RowDefinition Height="Auto"></RowDefinition>
             </Grid.RowDefinitions>
 

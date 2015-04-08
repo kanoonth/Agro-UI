@@ -7,7 +7,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
     <Page.Background>
-        <SolidColorBrush Color="#FF8CBF26"/>
+        <SolidColorBrush Color="White"/>
     </Page.Background>
 
     <ListView x:Name="NotificationListView"
@@ -21,12 +21,12 @@
                                     Text="{Binding DiseaseName}"
                                     Pivot.SlideInAnimationGroup="1"
                                     CommonNavigationTransitionInfo.IsStaggerElement="True"
-                                    Style="{StaticResource ListViewItemTextBlockStyle}" Foreground="White"/>
+                                    Style="{StaticResource ListViewItemTextBlockStyle}" Foreground="#FF34495E"/>
                     <TextBlock
                                     Text="{Binding PercentCF}"
                                     Pivot.SlideInAnimationGroup="2"
                                     CommonNavigationTransitionInfo.IsStaggerElement="True"
-                                    Style="{StaticResource ListViewItemContentTextBlockStyle}" Foreground="White"/>
+                                    Style="{StaticResource ListViewItemContentTextBlockStyle}" Foreground="#FF34495E"/>
                 </StackPanel>
             </DataTemplate>
         </ListView.ItemTemplate>

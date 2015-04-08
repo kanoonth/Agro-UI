@@ -7,15 +7,15 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
     <Page.Background>
-        <SolidColorBrush Color="#FF8CBF26"/>
+        <SolidColorBrush Color="#FFACE25C"/>
     </Page.Background>
 
     <ScrollViewer>
-        <Grid x:Name="LayoutRoot" Background="#FF8CBF26">
-            <Rectangle Fill="#FF16811B" />
-            <TextBlock x:Name="FeedNewsTitle" Foreground="White" FontSize="36" Grid.Row="0" Margin="10,10,14,10" TextWrapping="WrapWholeWords" FontWeight="Bold" />
-            <Image x:Name="FeedPicture" HorizontalAlignment="Left" Height="211" Margin="10,29,0,0" Grid.Row="1" VerticalAlignment="Top" Width="380"/>
-            <TextBlock x:Name="FeedInformation" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="2" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="24" Height="80"/>
+        <Grid x:Name="LayoutRoot" Background="White">
+            <Rectangle Fill="#FFACE25C" />
+            <TextBlock Text="Title" x:Name="FeedNewsTitle" Foreground="#FF34495E" FontSize="36" Grid.Row="0" Margin="10,10,14,10" TextWrapping="WrapWholeWords" FontWeight="Bold" />
+            <Image x:Name="FeedPicture" HorizontalAlignment="Left" Margin="10,28.667,0,60.333" Grid.Row="1" Width="380"/>
+            <TextBlock Text="Content" x:Name="FeedInformation" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="2" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="24" Height="80" Foreground="#FF34495E"/>
 
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"></RowDefinition>

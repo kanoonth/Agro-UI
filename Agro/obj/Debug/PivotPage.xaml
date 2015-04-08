@@ -7,7 +7,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:data="using:Agro.DataModel"
     mc:Ignorable="d"
-    DataContext="{Binding DefaultViewModel, RelativeSource={RelativeSource Self}}" FontFamily="Microsoft NeoGothic" FontSize="12" Background="#FF8CBF26" Foreground="White">
+    DataContext="{Binding DefaultViewModel, RelativeSource={RelativeSource Self}}" FontFamily="Microsoft NeoGothic" FontSize="12" Background="#FFACE25C" Foreground="White">
     <Page.Transitions>
         <TransitionCollection>
             <NavigationThemeTransition>
@@ -18,11 +18,18 @@
         </TransitionCollection>
     </Page.Transitions>
 
-    <Grid>
-        <Pivot x:Uid="Pivot" x:Name="PivotController" CommonNavigationTransitionInfo.IsStaggerElement="True" >
-            <!--Pivot item one-->
+    <Grid Background="White">
+        <Pivot Title="Agro" x:Uid="Pivot" x:Name="PivotController" CommonNavigationTransitionInfo.IsStaggerElement="True" Foreground="#FF34495E" >
+
+            <Pivot.HeaderTemplate>
+                <DataTemplate>
+                    <TextBlock Foreground="#FF34495E" Text="{Binding}"/>
+                </DataTemplate>
+            </Pivot.HeaderTemplate>
+
             <PivotItem
                 x:Uid="FeedPivot"
+                Header="Feed"
                 x:Name="Feeds"
                 Margin="19,14.5,0,0"
                 CommonNavigationTransitionInfo.IsStaggerElement="True">
@@ -40,7 +47,7 @@
                                     Pivot.SlideInAnimationGroup="1"
                                     CommonNavigationTransitionInfo.IsStaggerElement="True"
                                     Style="{ThemeResource ListViewItemTextBlockStyle}"
-                                    Margin="0,0,19,0" Foreground="White"/>
+                                    Margin="0,0,19,0" Foreground="#FF34495E"/>
                                 <Image Source="{Binding ThumbURL}"/>
                                 <Rectangle x:Name="Seperate" Margin="0,10" Height="2" Fill="{x:Null}" />
                             </StackPanel>
@@ -53,11 +60,11 @@
     </Grid>
 
     <Page.BottomAppBar>
-        <CommandBar x:Name="CommandBar" Background="#FF16811B">
-            <AppBarButton x:ConnectionId='2' x:Uid="LoginAppBar" x:Name="LoginAppBar" Icon="Contact"                               Foreground="White" />
+        <CommandBar x:Name="CommandBar" Foreground="#FF34495E" Background="#FFACE25C">
+            <AppBarButton x:ConnectionId='2' x:Uid="LoginAppBar" x:Name="LoginAppBar" Icon="Contact"                               />
             <CommandBar.SecondaryCommands>
-                <AppBarButton x:ConnectionId='3' x:Uid="NameAtAppBar" x:Name="NameAtAppBar" Label="Your Name" Foreground="White" Visibility="Collapsed"                      />
-                <AppBarButton x:ConnectionId='4' x:Uid="LogoutButton" x:Name="LogoutButton" Visibility="Collapsed"                      ></AppBarButton>
+                <AppBarButton x:ConnectionId='3' Label="Name" x:Uid="NameAtAppBar" x:Name="NameAtAppBar" Foreground="White" Visibility="Collapsed"                      />
+                <AppBarButton x:ConnectionId='4' Label="Logout" x:Uid="LogoutButton" x:Name="LogoutButton" Visibility="Collapsed"                      ></AppBarButton>
             </CommandBar.SecondaryCommands>
         </CommandBar>
     </Page.BottomAppBar>
