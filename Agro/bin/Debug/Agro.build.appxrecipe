@@ -52,6 +52,9 @@
     <AppxPackagedFile Include="C:\Users\Sarun\Desktop\Agro-UI\Agro\bin\Debug\App.xbf">
       <PackagePath>App.xbf</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Sarun\Desktop\Agro-UI\Agro\bin\Debug\NotificationPage.xbf">
+      <PackagePath>NotificationPage.xbf</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Sarun\Desktop\Agro-UI\Agro\bin\Debug\DashboardPage.xbf">
       <PackagePath>DashboardPage.xbf</PackagePath>
     </AppxPackagedFile>

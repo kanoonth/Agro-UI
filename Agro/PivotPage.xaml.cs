@@ -69,7 +69,6 @@ namespace Agro
 
         private async void NavigationHelper_LoadState(object sender, LoadStateEventArgs e)
         {
-            Debug.WriteLine("NavigationHelper_LoadState");
         }
 
         private void NavigationHelper_SaveState(object sender, SaveStateEventArgs e)
@@ -116,17 +115,7 @@ namespace Agro
 
         private void ItemView_ItemClick(object sender, ItemClickEventArgs e)
         {
-            var item = e.ClickedItem.GetType().ToString();
-            if (item.Equals("Agro.DataModel.FeedItem"))
-            {
-                Frame.Navigate(typeof(FeedPage), e.ClickedItem);
-            }
-            else if (item.Equals("Agro.DataModel.Notification"))
-            {
-
-            }
-
-
+            Frame.Navigate(typeof(FeedPage), e.ClickedItem);
         }
 
         #endregion

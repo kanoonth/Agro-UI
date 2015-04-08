@@ -104,3 +104,9 @@ C:\Users\Sarun\Desktop\Agro-UI\Agro\obj\Debug\qualifiers.txt
 C:\Users\Sarun\Desktop\Agro-UI\Agro\obj\Debug\qualifiers.txt.intermediate
 C:\Users\Sarun\Desktop\Agro-UI\Agro\obj\Debug\MultipleQualifiersPerDimensionFound.txt
 C:\Users\Sarun\Desktop\Agro-UI\Agro\obj\Debug\ProjectArchitectures.txt
+C:\Users\Sarun\Desktop\Agro-UI\Agro\obj\Debug\NotificationPage.g.i.cs
+C:\Users\Sarun\Desktop\Agro-UI\Agro\obj\Debug\NotificationPage.g.cs
+C:\Users\Sarun\Desktop\Agro-UI\Agro\obj\Debug\NotificationPage.xaml
+C:\Users\Sarun\Desktop\Agro-UI\Agro\obj\Debug\NotificationPage.xbf
+C:\Users\Sarun\Desktop\Agro-UI\Agro\bin\Debug\NotificationPage.xbf
+C:\Users\Sarun\Desktop\Agro-UI\Agro\obj\Debug\Agro.csprojResolveAssemblyReference.cache

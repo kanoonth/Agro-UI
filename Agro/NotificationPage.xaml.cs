@@ -5,11 +5,8 @@ using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
-using Windows.ApplicationModel.Resources;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
-using Windows.Storage.Streams;
-using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -18,27 +15,25 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Media.Imaging;
 using Windows.UI.Xaml.Navigation;
-using Windows.Web.Http;
 
 namespace Agro
 {
 
-    public sealed partial class NotificationListViewPage : Page
+    public sealed partial class NotificationPage : Page
     {
-        private ResourceLoader resourceLoader;
 
-        public NotificationListViewPage(List<Notification> list, bool isItemClickEnabled)
+        public NotificationPage()
         {
+            Debug.WriteLine("JJ");
             this.InitializeComponent();
             Windows.Phone.UI.Input.HardwareButtons.BackPressed += HardwareButtons_BackPressed;
-            resourceLoader = new ResourceLoader();
-            NotificationListView.IsItemClickEnabled = isItemClickEnabled;
-            NotificationListView.ItemsSource = list;
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-
+            Notification n = e.Parameter as Notification;
+            DiseaseName.Text = n.DiseaseName;
+            PercentCF.Text = n.PercentCF;
         }
 
         private void HardwareButtons_BackPressed(object sender, Windows.Phone.UI.Input.BackPressedEventArgs e)
@@ -49,11 +44,5 @@ namespace Agro
                 Frame.GoBack();
             }
         }
-
-        private void NotificationListView_ItemClick(object sender, ItemClickEventArgs e)
-        {
-            // Frame.Navigate(typeof(NotificationPage));
-        }
-
     }
 }

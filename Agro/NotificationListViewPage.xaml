@@ -11,6 +11,7 @@
     </Page.Background>
 
     <ListView x:Name="NotificationListView"
+              ItemClick="NotificationListView_ItemClick"
                     ItemsSource="{Binding Items}"
                     IsItemClickEnabled="True"
                     ContinuumNavigationTransitionInfo.ExitElementContainer="True">
